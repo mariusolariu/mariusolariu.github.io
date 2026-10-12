@@ -1,0 +1,16 @@
+{
+  "name": "mariusolariu.github.io",
+  "version": "1.0.0",
+  "private": true,
+  "description": "CV and professional site of Marius Olariu",
+  "type": "module",
+  "scripts": {
+    "build": "node build.mjs",
+    "test": "npm run build && node --test",
+    "pdf": "node scripts/make-cv-files.mjs"
+  },
+  "devDependencies": {
+    "html-validate": "^9.5.0",
+    "node-html-parser": "^7.0.1"
+  }
+}

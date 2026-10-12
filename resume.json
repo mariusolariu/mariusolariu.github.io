@@ -1,0 +1,170 @@
+{
+  "$schema": "https://raw.githubusercontent.com/jsonresume/resume-schema/v1.0.0/schema.json",
+  "basics": {
+    "name": "Marius Olariu",
+    "label": "Senior Full-Stack Software Engineer",
+    "email": "marius.lucian.olariu@gmail.com",
+    "url": "https://mariusolariu.github.io",
+    "summary": "I work mainly in Java and Spring Boot, and I build the frontend when a feature needs it, lately in TypeScript and Next.js. For over two years I have been at Strategic Imperatives on Elevate, a billing platform that processes around £100M a month for UK telecom resellers. Before that I built checkout services at Vodafone, where I was recognised as Top Talent and promoted to lead a team.",
+    "location": {
+      "city": "London",
+      "countryCode": "GB",
+      "region": "England"
+    },
+    "profiles": [
+      {
+        "network": "LinkedIn",
+        "username": "mlo1994",
+        "url": "https://www.linkedin.com/in/mlo1994/"
+      },
+      {
+        "network": "GitHub",
+        "username": "mariusolariu",
+        "url": "https://github.com/mariusolariu"
+      }
+    ],
+    "x-rightToWork": "Settled status, no sponsorship needed",
+    "x-topSkills": ["Java", "TypeScript", "AWS", "Spring", "Next.js", "Git"],
+    "x-differentiator": "Led the billing team's adoption of AI-assisted development. Story throughput at least doubled, with no production incidents attributable to it, and I was named the company's AI Champion."
+  },
+  "work": [
+    {
+      "name": "Strategic Imperatives",
+      "position": "Senior Full-Stack Software Engineer",
+      "location": "Woking, hybrid",
+      "startDate": "2024-11",
+      "endDate": null,
+      "x-durationLabel": "over two years",
+      "x-technologies": ["Java", "Spring Boot", "AWS", "SQL", "JUnit", "Maven", "Git", "TypeScript", "Next.js", "NestJS", "Serverless", "AI-assisted development"],
+      "highlights": [
+        "Spent the first two years on the billing team, building rate card, product configuration, invoicing and reporting features for Elevate, which processes roughly £100M of monthly revenue and handles invoices with over a million call records.",
+        "Took part in the move away from monolithic systems towards Spring Boot microservices on Java 17 and above.",
+        "Led the team's adoption of AI-assisted development: a shared agent configuration, custom verification skills (browser smoke tests, an integration-test runner, pull-request follow-up) and a domain-knowledge index across about 33 repositories. Throughput at least doubled, and nothing we merged this way caused a production incident.",
+        "Gave two internal talks on AI-assisted development, with a third on the way, continuing a habit I started at Vodafone. I am the main contributor to a cross-team upskilling channel read by around 15 engineers, two tech leads and the Head of Engineering, and I received the AI Champion award at an investor-attended town hall.",
+        "Built the local-environment, deployment and AWS tooling the team relies on day to day, the sort of work a platform team would own in a larger company.",
+        "Moved in 2026 to the Fibre team, which had more demand than engineers, at my manager's request so the same practices could take root there. The stack is TypeScript, Next.js, NestJS, AWS Serverless and event-driven, which builds on the React and Node work from earlier in my career."
+      ]
+    },
+    {
+      "name": "VodafoneThree",
+      "position": "Backend Software Engineer, then Software Team Lead",
+      "location": "London, hybrid",
+      "startDate": "2023-02",
+      "endDate": "2024-07",
+      "x-positions": [
+        { "position": "Software Team Lead", "startDate": "2024-04", "endDate": "2024-07" },
+        { "position": "Backend Software Engineer", "startDate": "2023-02", "endDate": "2024-04" }
+      ],
+      "x-technologies": ["Java", "Spring Boot", "AWS", "JUnit", "Maven", "Git", "Datadog"],
+      "highlights": [
+        "Built and maintained Java and Spring Boot microservices in the Checkout team, which collects customer details, takes payment and hands the order over to fulfilment.",
+        "Designed the pull-request standard the team adopted, and worked test-first throughout.",
+        "Gave a technical talk on AI-assisted development, the first of a series I have kept up since.",
+        "Recognised as Top Talent, one of four from about 80 engineers, while still a mid-level developer, and promoted to lead a team of seven: five developers, a tester and a scrum master.",
+        "As lead, persuaded the product owner, scrum master and analysts to adopt a definition of ready, so that two bootcamp juniors and colleagues working in their second language were not worn down by under-specified stories."
+      ],
+      "x-moveReason": "Left for a senior engineering role on a larger-scale platform."
+    },
+    {
+      "name": "IQVIA",
+      "position": "Full-Stack Software Engineer",
+      "location": "London",
+      "startDate": "2022-02",
+      "endDate": "2022-10",
+      "x-technologies": ["Java", "Groovy", "Grails", "AWS", "SQL", "JavaScript", "Git"],
+      "highlights": [
+        "Worked across the stack in Groovy, Grails and JavaScript on an eSource and Phase I clinical-trial automation system used by the largest pharmaceutical companies, alongside project managers, biomedical engineers and product owners.",
+        "Handled troubleshooting, bug fixing and technical support for the clients who ran trials on it."
+      ],
+      "x-moveReason": "Left a legacy stack for a modern Java microservices team."
+    },
+    {
+      "name": "Diffblue",
+      "position": "Software Engineer",
+      "location": "Oxford",
+      "startDate": "2020-08",
+      "endDate": "2022-02",
+      "x-technologies": ["Java", "Spring Boot", "JUnit", "Maven", "Git"],
+      "highlights": [
+        "Wrote Java for Diffblue Cover, a tool that generates unit tests using reinforcement learning (AI). Set up and maintained the online environment used to trial the product.",
+        "My tech lead, who was growing me towards more responsibility, had me run some of the stand-ups and retrospectives. I also made a habit of studying one new topic relevant to the work every sprint."
+      ],
+      "x-moveReason": "Relocated to London and wanted to build user-facing systems again."
+    },
+    {
+      "name": "New Verve Consulting",
+      "position": "Junior Full-Stack Software Engineer",
+      "location": "Glasgow",
+      "startDate": "2019-08",
+      "endDate": "2020-08",
+      "x-technologies": ["JavaScript", "React", "Node.js", "AWS", "Jest", "Git"],
+      "highlights": [
+        "Designed and built a Jira Cloud add-on, a lightweight CRM, in React and Node on AWS, while finishing my MSc dissertation.",
+        "Mentored a technical consultant into a developer role."
+      ],
+      "x-moveReason": "Relocated to Oxford and took a Java role on a product applying reinforcement learning to test generation."
+    },
+    {
+      "name": "SSI Schäfer",
+      "position": "Junior Software Engineer",
+      "location": "Timișoara, Romania",
+      "startDate": "2017-09",
+      "endDate": "2018-08",
+      "x-technologies": ["Java", "SQL", "JUnit", "Maven", "Git"],
+      "highlights": [
+        "Wrote Java control software for a vertical lift warehouse module, in parallel with the final year of my BSc."
+      ],
+      "x-moveReason": "Moved to Scotland for an MSc."
+    }
+  ],
+  "x-softSkills": [
+    { "name": "Team player", "evidence": "Main contributor to the cross-team upskilling channel; as lead, kept two juniors clear of story churn." },
+    { "name": "Clear communicator", "evidence": "Three internal talks and counting; talked a product owner, scrum master and analysts into a definition of ready." },
+    { "name": "Personable", "evidence": "I get on with the people I work with, and I have been trusted to mentor and to run ceremonies since early in my career." },
+    { "name": "Mentor", "evidence": "Coached a consultant into a developer role; taught coding to 7 to 18 year olds at YMCA Scotland for a year." },
+    { "name": "Self-directed learner", "evidence": "A new topic every sprint at Diffblue, the Oxford Saïd Senior Leadership Executive Programme in 2024, two Erasmus semesters, and a new TypeScript and NestJS stack in 2026." },
+    { "name": "Takes ownership", "evidence": "Built the team's environment and deployment tooling without being asked. At home I keep the same habit with Hammerspoon, Karabiner and chezmoi-managed dotfiles." }
+  ],
+  "skills": [
+    { "name": "Backend", "keywords": ["Java 17+", "Spring Boot", "NestJS", "Node.js", "REST APIs", "Microservices", "Event-driven architecture"] },
+    { "name": "Frontend", "keywords": ["TypeScript", "React", "Next.js", "JavaScript"] },
+    { "name": "Cloud and infrastructure", "keywords": ["AWS (Lambda, Cognito, S3, SQS)", "Serverless Framework", "Terraform", "Docker", "CI/CD"] },
+    { "name": "Data", "keywords": ["MySQL", "SQL", "Liquibase"] },
+    { "name": "Testing", "keywords": ["JUnit", "Jest", "Karate", "Test-driven development"] },
+    { "name": "AI-assisted development", "keywords": ["Claude Code", "Agent configuration", "Custom skills", "MCP"] }
+  ],
+  "x-skillEmoji": {
+    "Java": "☕",
+    "Spring Boot": "🌱",
+    "AWS": "☁️",
+    "SQL": "🗄️",
+    "JUnit": "✅",
+    "Maven": "📦",
+    "Git": "🔀",
+    "TypeScript": "🔷",
+    "JavaScript": "🟨",
+    "React": "⚛️",
+    "Next.js": "▲",
+    "NestJS": "🐈",
+    "Node.js": "🟢",
+    "Serverless": "⚡",
+    "Jest": "🃏",
+    "Groovy": "🟤",
+    "Grails": "🔵",
+    "Datadog": "🐶",
+    "AI-assisted development": "🤖"
+  },
+  "education": [
+    { "institution": "University of Oxford, Saïd Business School", "area": "Senior Leadership Executive Programme", "studyType": "Executive programme", "startDate": "2024-05", "endDate": "2024-11" },
+    { "institution": "University of the West of Scotland", "area": "Mobile and Web Development", "studyType": "MSc", "startDate": "2018", "endDate": "2019", "score": "Distinction" },
+    { "institution": "Politehnica University Timișoara", "area": "Computer and Software Engineering", "studyType": "BSc", "startDate": "2014", "endDate": "2018", "score": "Distinction" },
+    { "institution": "Linköping University and Radboud University", "area": "Software Engineering, Erasmus exchange semesters", "studyType": "Exchange", "startDate": "2016", "endDate": "2017" }
+  ],
+  "volunteer": [
+    { "organization": "YMCA Scotland", "position": "Coding Mentor", "startDate": "2018-09", "endDate": "2019-08", "summary": "Taught coding to young people aged 7 to 18 in Paisley." }
+  ],
+  "languages": [
+    { "language": "English", "fluency": "Native or bilingual" },
+    { "language": "Romanian", "fluency": "Native or bilingual" }
+  ]
+}
