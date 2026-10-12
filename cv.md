@@ -27,7 +27,8 @@ Woking, hybrid | Nov 2024 – Present (over two years)
 
 Technologies: Java, Spring Boot, AWS, SQL, JUnit, Maven, Git, TypeScript, Next.js, NestJS, Serverless, AI-assisted development
 
-- Spent most of my time there on the billing team, building rate card, product configuration, invoicing and reporting features for Elevate, which processes roughly £100M of monthly revenue and handles invoices with over a million call records.
+- Spent most of my time there on the Elevate billing team, working across the codebase: payments, invoicing, the rental engine, the frontend and more. Elevate processes roughly £100M of monthly revenue and handles invoices with over a million call records.
+- Contributed a good part of the architecture and early direction of View my Bill, a new brownfield project that lets our customers' own customers download their bills and see their consumption. It pairs a backend-for-frontend over our REST services with a Next.js app as the frontend.
 - Took part in the move away from monolithic systems towards Spring Boot microservices on Java 17 and above.
 - Led the team's adoption of AI-assisted development: a shared agent configuration, custom verification skills (browser smoke tests, an integration-test runner, pull-request follow-up) and a domain-knowledge index across about 33 repositories. Throughput at least doubled, and nothing we merged this way caused a production incident.
 - Gave two internal talks on AI-assisted development, with a third on the way, continuing a habit I started at Vodafone. I am the main contributor to a cross-team upskilling channel read by around 15 engineers, two tech leads and the Head of Engineering, and I received the AI Champion award at an investor-attended town hall.
