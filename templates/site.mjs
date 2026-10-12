@@ -1,7 +1,18 @@
+import { execFileSync } from "node:child_process";
 import { CV_PDF_NAME, dateRange, educationLine, escapeHtml as h, profileByNetwork } from "./shared.mjs";
 
 const SITE_DESCRIPTION = "CV of Marius Olariu, Senior Full-Stack Software Engineer in London. Java, Spring Boot, TypeScript, Next.js and AWS.";
-const UPDATED_LABEL = new Date().toLocaleDateString("en-GB", { month: "long", year: "numeric" });
+const UPDATED_LABEL = lastResumeChange().toLocaleDateString("en-GB", { month: "long", year: "numeric" });
+
+function lastResumeChange() {
+  try {
+    const iso = execFileSync("git", ["log", "-1", "--format=%cs", "--", "resume.json"], { encoding: "utf8" }).trim();
+    if (iso) return new Date(iso);
+  } catch (error) {
+    /* not a git checkout: fall back to today */
+  }
+  return new Date();
+}
 
 function renderTags(job, emoji) {
   const tags = job["x-technologies"].map((skill) => `
