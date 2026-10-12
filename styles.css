@@ -13,6 +13,7 @@
   --font: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
 
+/* Dark tokens are listed twice on purpose: once for the system preference, once for the manual override. */
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
     --bg: #17191B;
@@ -26,6 +27,19 @@
     --tag-active-text: #0F1A22;
     --header-bg: rgba(23, 25, 27, 0.94);
   }
+}
+
+:root[data-theme="dark"] {
+  --bg: #17191B;
+  --text: #E8E8E4;
+  --text-secondary: #A9AFB5;
+  --border: #33373B;
+  --accent: #8FB8D6;
+  --accent-contrast: #0F1A22;
+  --tag-bg: #23272B;
+  --tag-active-bg: #8FB8D6;
+  --tag-active-text: #0F1A22;
+  --header-bg: rgba(23, 25, 27, 0.94);
 }
 
 * { box-sizing: border-box; }
@@ -118,6 +132,20 @@ em { font-style: italic; }
 }
 .text-size button:hover:not(:disabled) { border-color: var(--accent); }
 .text-size button:disabled { opacity: 0.4; cursor: default; }
+
+.theme-toggle {
+  font: inherit;
+  font-size: 1rem;
+  min-width: 2.4rem;
+  min-height: 2.4rem;
+  padding: 0;
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  cursor: pointer;
+}
+.theme-toggle:hover { border-color: var(--accent); }
 
 .button {
   display: inline-block;

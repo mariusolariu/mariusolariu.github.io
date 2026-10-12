@@ -8,6 +8,12 @@
   var TEXT_SIZE_DEFAULT = 100;
   var BASE_FONT_SIZE_PERCENT = 112.5;
 
+  var THEME_KEY = "theme";
+  var THEME_DARK = "dark";
+  var THEME_LIGHT = "light";
+  var THEME_GLYPHS = { dark: "\u2600", light: "\u263E" };
+  var DARK_SCHEME_QUERY = "(prefers-color-scheme: dark)";
+
   var ACTIVE_TAG_CLASS = "is-active";
   var DIMMED_JOB_CLASS = "is-dimmed";
 
@@ -92,6 +98,39 @@
     });
   }
 
+  function setupThemeToggle() {
+    var toggle = document.querySelector("[data-theme-toggle]");
+    if (!toggle) return;
+    var glyph = toggle.querySelector("[aria-hidden='true']");
+
+    function effectiveTheme() {
+      var chosen = document.documentElement.dataset.theme;
+      if (chosen) return chosen;
+      return window.matchMedia(DARK_SCHEME_QUERY).matches ? THEME_DARK : THEME_LIGHT;
+    }
+
+    function render() {
+      var isDark = effectiveTheme() === THEME_DARK;
+      glyph.textContent = isDark ? THEME_GLYPHS.dark : THEME_GLYPHS.light;
+      toggle.setAttribute("aria-label", isDark ? "Switch to light mode" : "Switch to dark mode");
+      toggle.setAttribute("aria-pressed", isDark ? "true" : "false");
+    }
+
+    toggle.addEventListener("click", function () {
+      var next = effectiveTheme() === THEME_DARK ? THEME_LIGHT : THEME_DARK;
+      document.documentElement.dataset.theme = next;
+      try {
+        window.localStorage.setItem(THEME_KEY, next);
+      } catch (error) {
+        /* storage unavailable: the theme still applies for this page view */
+      }
+      render();
+    });
+
+    window.matchMedia(DARK_SCHEME_QUERY).addEventListener("change", render);
+    render();
+  }
+
   function setupEmail() {
     var holder = document.querySelector("[data-email-user][data-email-domain]");
     if (!holder) return;
@@ -104,5 +143,6 @@
 
   setupTextSize();
   setupSkillHighlight();
+  setupThemeToggle();
   setupEmail();
 })();

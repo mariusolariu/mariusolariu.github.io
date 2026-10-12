@@ -82,6 +82,7 @@ export function renderSite(resume) {
   <link rel="canonical" href="${h(basics.url)}/">
   <link rel="alternate" type="application/json" href="resume.json" title="JSON Resume">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23244A63'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='system-ui' font-size='17' font-weight='700' fill='white'%3EMO%3C/text%3E%3C/svg%3E">
+  <script>try { var storedTheme = localStorage.getItem("theme"); if (storedTheme) document.documentElement.dataset.theme = storedTheme; } catch (error) {}</script>
   <link rel="stylesheet" href="styles.css">
   <meta property="og:title" content="Marius Olariu, Senior Full-Stack Software Engineer">
   <meta property="og:description" content="${h(SITE_DESCRIPTION)}">
@@ -98,6 +99,7 @@ export function renderSite(resume) {
           <button type="button" data-text-size="decrease" aria-label="Decrease text size">A&minus;</button>
           <button type="button" data-text-size="increase" aria-label="Increase text size">A+</button>
         </div>
+        <button type="button" class="theme-toggle" data-theme-toggle aria-label="Switch to dark mode" aria-pressed="false"><span aria-hidden="true">&#9790;</span></button>
         <a class="button" href="${CV_PDF_NAME}" download>Download CV <span aria-hidden="true">&#8595;</span></a>
       </div>
     </div>

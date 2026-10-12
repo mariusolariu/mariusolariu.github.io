@@ -78,6 +78,12 @@ test("site header has sticky controls: text size buttons and a CV download link"
   assert.ok(download, "download link missing from header");
   assert.ok(download.hasAttribute("download"), "download link needs the download attribute");
   assert.match(textOf(download), /Download CV/);
+  const toggle = header.querySelector("button[data-theme-toggle]");
+  assert.ok(toggle, "theme toggle missing from header");
+  assert.ok(toggle.getAttribute("aria-label"), "theme toggle needs an aria-label");
+  assert.ok(toggle.hasAttribute("aria-pressed"), "theme toggle needs aria-pressed");
+  assert.ok(read("styles.css").includes('[data-theme="dark"]'), "stylesheet lacks the manual dark theme selector");
+  assert.ok(siteHtml.includes('localStorage.getItem("theme")'), "head must apply the stored theme before first paint");
 });
 
 test("site shows the top skills line exactly as agreed", () => {
