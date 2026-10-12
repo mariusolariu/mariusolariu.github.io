@@ -1,11 +1,13 @@
 import { execFileSync } from "node:child_process";
 import { createHash } from "node:crypto";
 import { readFileSync } from "node:fs";
-import { CV_PDF_NAME, dateRange, educationLine, escapeHtml as h, profileByNetwork } from "./shared.mjs";
+import { CV_DOCX_NAME, dateRange, educationLine, escapeHtml as h, profileByNetwork } from "./shared.mjs";
 
 const SITE_DESCRIPTION = "CV of Marius Olariu, Senior Full-Stack Software Engineer in London. Java, Spring Boot, TypeScript, Next.js and AWS.";
 const ASSET_HASH_LENGTH = 8;
 const THEME_COOKIE_NAME = "theme";
+const NEW_TAB_NOTICE = "(opens in a new tab)";
+const DOWNLOAD_LABEL = "Download CV (Word)";
 
 function assetUrl(file) {
   const content = readFileSync(new URL(`../${file}`, import.meta.url));
@@ -25,9 +27,9 @@ function lastResumeChange() {
   return new Date();
 }
 
-function renderTags(job, emoji) {
+function renderTags(job) {
   const tags = job["x-technologies"].map((skill) => `
-        <li><button type="button" class="tag" data-skill="${h(skill)}" aria-pressed="false" title="Show every role where I used ${h(skill)}"><span aria-hidden="true">${emoji[skill]}</span> ${h(skill)}</button></li>`);
+        <li><button type="button" class="tag" data-skill="${h(skill)}" aria-pressed="false" title="Show every role where I used ${h(skill)}">${h(skill)}</button></li>`);
   return `<ul class="tags">${tags.join("")}
       </ul>`;
 }
@@ -40,7 +42,11 @@ function renderPositions(job) {
       </ul>`;
 }
 
-function renderJob(job, emoji) {
+function renderCompanyLink(job) {
+  return `<a class="company" href="${h(job.url)}" target="_blank" rel="noopener noreferrer">${h(job.name)}<span aria-hidden="true">&nbsp;&#8599;</span><span class="visually-hidden"> ${NEW_TAB_NOTICE}</span></a>`;
+}
+
+function renderJob(job) {
   const highlights = job.highlights.map((line) => `
         <li>${h(line)}</li>`).join("");
   const move = job["x-moveReason"] ? `
@@ -48,9 +54,10 @@ function renderJob(job, emoji) {
   return `
     <article class="job">
       <h3>${h(job.position)}</h3>
-      <p class="meta"><strong>${h(job.name)}</strong> · ${h(job.location)} · <time datetime="${h(job.startDate)}">${h(dateRange(job.startDate, job.endDate, job["x-durationLabel"]))}</time></p>
+      <p class="meta">${renderCompanyLink(job)} · ${h(job.location)} · <time datetime="${h(job.startDate)}">${h(dateRange(job.startDate, job.endDate))}</time></p>
+      <p class="company-description">${h(job.description)}</p>
       ${renderPositions(job)}
-      ${renderTags(job, emoji)}
+      ${renderTags(job)}
       <ul class="highlights">${highlights}
       </ul>${move}
     </article>`;
@@ -71,7 +78,6 @@ function renderSkillGroups(groups) {
 
 export function renderSite(resume) {
   const { basics } = resume;
-  const emoji = resume["x-skillEmoji"];
   const linkedin = profileByNetwork(resume, "LinkedIn");
   const github = profileByNetwork(resume, "GitHub");
   const [emailUser, emailDomain] = basics.email.split("@");
@@ -86,7 +92,7 @@ export function renderSite(resume) {
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Marius Olariu, Senior Full-Stack Software Engineer</title>
+  <title>${h(basics.name)} CV</title>
   <meta name="description" content="${h(SITE_DESCRIPTION)}">
   <meta name="author" content="${h(basics.name)}">
   <meta name="color-scheme" content="light dark">
@@ -111,7 +117,7 @@ export function renderSite(resume) {
           <button type="button" data-text-size="increase" aria-label="Increase text size">A+</button>
         </div>
         <button type="button" class="theme-toggle" data-theme-toggle aria-label="Switch to dark mode" aria-pressed="false"><span aria-hidden="true" data-theme-glyph>&#9790;</span> <span data-theme-label>Dark mode</span></button>
-        <a class="button" href="${CV_PDF_NAME}" download>Download CV <span aria-hidden="true">&#8595;</span></a>
+        <a class="button" href="${CV_DOCX_NAME}" download>${DOWNLOAD_LABEL} <span aria-hidden="true">&#8595;</span></a>
       </div>
     </div>
   </header>
@@ -120,7 +126,7 @@ export function renderSite(resume) {
     <section id="summary" class="hero" aria-labelledby="hero-title">
       <p class="kicker">${h(basics.label)}</p>
       <h1 id="hero-title">${h(basics.name)}</h1>
-      <p class="facts">${h(basics.location.city)}, UK · ${h(basics["x-rightToWork"])} · ${h(languages)}</p>
+      <p class="facts">${h(basics.location.city)}, UK · ${h(basics["x-rightToWork"])} · ${h(basics["x-availability"])} · ${h(languages)}</p>
       <p class="summary">${h(basics.summary)}</p>
       <p class="top-skills__label">Top skills</p>
       <ul class="top-skills" data-top-skills>${topSkills}</ul>
@@ -135,19 +141,20 @@ export function renderSite(resume) {
     <section id="experience" aria-labelledby="experience-title">
       <h2 id="experience-title">Experience</h2>
       <p class="hint">Click a technology to see every role where I used it.</p>
-      ${resume.work.map((job) => renderJob(job, emoji)).join("\n")}
-    </section>
-
-    <section id="soft-skills" aria-labelledby="soft-skills-title">
-      <h2 id="soft-skills-title">Soft skills</h2>
-      <ul class="soft-skills">${renderSoftSkills(resume["x-softSkills"])}
-      </ul>
+      <p class="filter-status" data-filter-status aria-live="polite" hidden></p>
+      ${resume.work.map(renderJob).join("\n")}
     </section>
 
     <section id="skills" aria-labelledby="skills-title">
       <h2 id="skills-title">Technical skills</h2>
       <dl class="skill-groups">${renderSkillGroups(resume.skills)}
       </dl>
+    </section>
+
+    <section id="soft-skills" aria-labelledby="soft-skills-title">
+      <h2 id="soft-skills-title">Soft skills</h2>
+      <ul class="soft-skills">${renderSoftSkills(resume["x-softSkills"])}
+      </ul>
     </section>
 
     <section id="education" aria-labelledby="education-title">
@@ -159,7 +166,7 @@ export function renderSite(resume) {
   </main>
 
   <footer class="site-footer">
-    <p>${h(basics.name)} · <a href="${h(linkedin.url)}">LinkedIn</a> · <a href="${h(github.url)}">GitHub</a> · <a href="${CV_PDF_NAME}" download>Download CV</a> · <a href="resume.json">resume.json</a></p>
+    <p>${h(basics.name)} · <a href="${h(linkedin.url)}">LinkedIn</a> · <a href="${h(github.url)}">GitHub</a> · <a href="${CV_DOCX_NAME}" download>${DOWNLOAD_LABEL}</a> · <a href="resume.json">resume.json</a></p>
     <p>Last updated ${h(UPDATED_LABEL)}.</p>
   </footer>
 

@@ -18,6 +18,7 @@
 
   var ACTIVE_TAG_CLASS = "is-active";
   var DIMMED_JOB_CLASS = "is-dimmed";
+  var CLEAR_FILTER_LABEL = "Clear";
 
   function readStoredTextSize() {
     try {
@@ -69,10 +70,20 @@
   function setupSkillHighlight() {
     var tags = Array.prototype.slice.call(document.querySelectorAll(".tag[data-skill]"));
     var jobs = Array.prototype.slice.call(document.querySelectorAll(".job"));
-    if (!tags.length) return;
+    var status = document.querySelector("[data-filter-status]");
+    if (!tags.length || !status) return;
     var activeSkill = null;
+    var lastClickedTag = null;
+
+    var statusText = document.createElement("span");
+    var clear = document.createElement("button");
+    clear.type = "button";
+    clear.textContent = CLEAR_FILTER_LABEL;
+    status.appendChild(statusText);
+    status.appendChild(clear);
 
     function render() {
+      var matching = 0;
       tags.forEach(function (tag) {
         var isActive = tag.getAttribute("data-skill") === activeSkill;
         tag.classList.toggle(ACTIVE_TAG_CLASS, isActive);
@@ -80,23 +91,36 @@
       });
       jobs.forEach(function (job) {
         var usesSkill = activeSkill === null || job.querySelector(".tag[data-skill='" + activeSkill + "']") !== null;
+        if (usesSkill) matching++;
         job.classList.toggle(DIMMED_JOB_CLASS, !usesSkill);
       });
+      status.hidden = activeSkill === null;
+      statusText.textContent = activeSkill === null
+        ? ""
+        : "Showing " + matching + " of " + jobs.length + " roles using " + activeSkill;
+    }
+
+    function clearFilter() {
+      activeSkill = null;
+      render();
     }
 
     tags.forEach(function (tag) {
       tag.addEventListener("click", function () {
         var skill = tag.getAttribute("data-skill");
+        lastClickedTag = tag;
         activeSkill = activeSkill === skill ? null : skill;
         render();
       });
     });
 
+    clear.addEventListener("click", function () {
+      clearFilter();
+      if (lastClickedTag) lastClickedTag.focus();
+    });
+
     document.addEventListener("keydown", function (event) {
-      if (event.key === "Escape" && activeSkill !== null) {
-        activeSkill = null;
-        render();
-      }
+      if (event.key === "Escape" && activeSkill !== null) clearFilter();
     });
   }
 

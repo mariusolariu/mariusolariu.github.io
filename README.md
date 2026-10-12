@@ -6,8 +6,8 @@ My CV as a website, served by GitHub Pages at <https://mariusolariu.github.io>.
 
 | Command | Produces |
 | --- | --- |
-| `npm run build` | `index.html`, `cv.html`, `cv.md` |
-| `npm run pdf` | `Marius_Olariu_CV.pdf` (Chrome headless) and `Marius_Olariu_CV.docx` (pandoc) |
+| `npm run build` | `index.html`, `cv.md` |
+| `npm run cv` | `Marius_Olariu_CV.docx` (pandoc, styled by `templates/reference.docx`: Arial 10pt, A4, single column, no tables, so ATS parsers read it in order) |
 | `npm test` | builds, then checks content, consistency, banned phrases and HTML validity |
 
-To change the CV: edit `resume.json`, run `npm test`, run `npm run pdf`, commit the lot.
+To change the CV: edit `resume.json`, run `npm test`, run `npm run cv`, check the Word file is still two pages or fewer, commit the lot.

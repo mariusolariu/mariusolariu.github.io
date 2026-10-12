@@ -2,11 +2,11 @@
 
 **Senior Full-Stack Software Engineer**
 
-London, UK | Settled status, no sponsorship needed | marius.lucian.olariu@gmail.com | https://www.linkedin.com/in/mlo1994/ | https://github.com/mariusolariu
+London, UK | Settled status, no sponsorship needed | Prefers hybrid roles in London | marius.lucian.olariu@gmail.com | https://www.linkedin.com/in/mlo1994/ | https://github.com/mariusolariu
 
 ## Summary
 
-I work mainly in Java and Spring Boot, and I build the frontend when a feature needs it, lately in TypeScript and Next.js. For over two years I have been at Strategic Imperatives, most of that on Elevate, a billing platform that processes around £100M a month for UK telecom resellers. Before that I built checkout services at Vodafone, where I was recognised as Top Talent and promoted to lead a team.
+I work mainly in Java and Spring Boot, and I build the frontend when a feature needs it, lately in TypeScript and Next.js. At Strategic Imperatives (November 2024 – present), most of my work has been on Elevate, a billing platform that processes around £100M a month for UK telecom resellers. Before that I built checkout services at Vodafone, where I was recognised as Top Talent and promoted to lead a team.
 
 Led the billing team's adoption of AI-assisted development. Story throughput at least doubled, with no production incidents attributable to it, and I was named the company's AI Champion.
 
@@ -14,18 +14,18 @@ Led the billing team's adoption of AI-assisted development. Story throughput at 
 
 - **Backend:** Java 17+, Spring Boot, NestJS, Node.js, REST APIs, Microservices, Event-driven architecture
 - **Frontend:** TypeScript, React, Next.js, JavaScript
-- **Cloud and infrastructure:** AWS (Lambda, Cognito, S3, SQS), Serverless Framework, Terraform, Docker, CI/CD
+- **Cloud and infrastructure:** AWS (Lambda, Cognito, S3, SQS), Serverless Framework, Docker, CI/CD
 - **Data:** MySQL, SQL, Liquibase
 - **Testing:** JUnit, Jest, Karate, Test-driven development
 - **AI-assisted development:** Claude Code, Agent configuration, Custom skills, MCP
 
 ## Experience
 
-### Senior Full-Stack Software Engineer, Strategic Imperatives
+### Senior Full-Stack Software Engineer, [Strategic Imperatives](https://www.imperatives.co.uk)
 
-Woking, hybrid | Nov 2024 – Present (over two years)
+Cloud billing and fibre platforms for UK telecoms providers | Woking, hybrid | Nov 2024 – Present
 
-Technologies: Java, Spring Boot, AWS, SQL, JUnit, Maven, Git, TypeScript, Next.js, NestJS, Serverless, AI-assisted development
+Technologies: Java, Spring Boot, AWS, SQL, MySQL, Liquibase, Docker, JUnit, Karate, Maven, Git, TypeScript, Next.js, NestJS, Serverless, AI-assisted development
 
 - Spent most of my time there on the Elevate billing team, working across the codebase: payments, invoicing, the rental engine, the frontend and more. Elevate processes roughly £100M of monthly revenue and handles invoices with over a million call records.
 - Contributed a good part of the architecture and early direction of View my Bill, a new brownfield project that lets our customers' own customers download their bills and see their consumption. It pairs a backend-for-frontend over our REST services with a Next.js app as the frontend.
@@ -35,9 +35,9 @@ Technologies: Java, Spring Boot, AWS, SQL, JUnit, Maven, Git, TypeScript, Next.j
 - Built the local-environment, deployment and AWS tooling the team relies on day to day, the sort of work a platform team would own in a larger company.
 - Moved in 2026 to the Fibre team, which had more demand than engineers, at my manager's request so the same practices could take root there. The stack is TypeScript, Next.js, NestJS, AWS Serverless and event-driven, which builds on the React and Node work from earlier in my career.
 
-### Backend Software Engineer, then Software Team Lead, VodafoneThree
+### Backend Software Engineer, then Software Team Lead, [VodafoneThree](https://www.vodafonethree.com)
 
-London, hybrid | Feb 2023 – Jul 2024
+UK mobile and broadband network operator | London, hybrid | Feb 2023 – Jul 2024
 
 Software Team Lead, Apr 2024 – Jul 2024; Backend Software Engineer, Feb 2023 – Apr 2024
 
@@ -51,9 +51,9 @@ Technologies: Java, Spring Boot, AWS, JUnit, Maven, Git, Datadog
 
 *Left for a senior engineering role on a larger-scale platform.*
 
-### Full-Stack Software Engineer, IQVIA
+### Full-Stack Software Engineer, [IQVIA](https://www.iqvia.com)
 
-London | Feb 2022 – Oct 2022
+Clinical research and health-data company | London, hybrid | Feb 2022 – Oct 2022
 
 Technologies: Java, Groovy, Grails, AWS, SQL, JavaScript, Git
 
@@ -62,9 +62,9 @@ Technologies: Java, Groovy, Grails, AWS, SQL, JavaScript, Git
 
 *Left a legacy stack for a modern Java microservices team.*
 
-### Software Engineer, Diffblue
+### Software Engineer, [Diffblue](https://www.diffblue.com)
 
-Oxford | Aug 2020 – Feb 2022
+AI tool that writes unit tests for Java code | Oxford, hybrid | Aug 2020 – Feb 2022
 
 Technologies: Java, Spring Boot, JUnit, Maven, Git
 
@@ -73,9 +73,9 @@ Technologies: Java, Spring Boot, JUnit, Maven, Git
 
 *Relocated to London and wanted to build user-facing systems again.*
 
-### Junior Full-Stack Software Engineer, New Verve Consulting
+### Junior Full-Stack Software Engineer, [New Verve Consulting](https://www.newverveconsulting.com)
 
-Glasgow | Aug 2019 – Aug 2020
+Atlassian partner consultancy (Jira and Confluence) | Glasgow | Aug 2019 – Aug 2020
 
 Technologies: JavaScript, React, Node.js, AWS, Jest, Git
 
@@ -84,9 +84,9 @@ Technologies: JavaScript, React, Node.js, AWS, Jest, Git
 
 *Relocated to Oxford and took a Java role on a product applying reinforcement learning to test generation.*
 
-### Junior Software Engineer, SSI Schäfer
+### Junior Software Engineer, [SSI Schäfer](https://www.ssi-schaefer.com)
 
-Timișoara, Romania | Sep 2017 – Aug 2018
+Warehouse automation and storage systems | Timișoara, Romania | Sep 2017 – Aug 2018
 
 Technologies: Java, SQL, JUnit, Maven, Git
 

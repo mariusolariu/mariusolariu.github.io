@@ -2,7 +2,6 @@ const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "
 const PRESENT_LABEL = "Present";
 const EN_DASH = "–";
 
-export const CV_PDF_NAME = "Marius_Olariu_CV.pdf";
 export const CV_DOCX_NAME = "Marius_Olariu_CV.docx";
 
 export function escapeHtml(value) {
@@ -19,9 +18,8 @@ export function formatMonth(isoDate) {
   return month ? `${MONTHS[Number(month) - 1]} ${year}` : year;
 }
 
-export function dateRange(start, end, durationLabel) {
-  const range = `${formatMonth(start)} ${EN_DASH} ${formatMonth(end)}`;
-  return durationLabel ? `${range} (${durationLabel})` : range;
+export function dateRange(start, end) {
+  return `${formatMonth(start)} ${EN_DASH} ${formatMonth(end)}`;
 }
 
 export function profileByNetwork(resume, network) {
