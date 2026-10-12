@@ -6,7 +6,7 @@ export function renderCvMarkdown(resume) {
   const github = profileByNetwork(resume, "GitHub");
   const lines = [];
   lines.push(`# ${basics.name}`, "", `**${basics.label}**`, "",
-    `${basics.location.city}, UK | ${basics["x-rightToWork"]} | ${basics["x-availability"]} | ${basics.email} | ${linkedin.url} | ${github.url}`, "",
+    `${basics.location.city}, UK | ${basics["x-rightToWork"]} | ${basics.email} | ${linkedin.url} | ${github.url}`, "",
     "## Summary", "", basics.summary, "", basics["x-differentiator"], "",
     "## Technical Skills", "");
   for (const group of resume.skills) lines.push(`- **${group.name}:** ${group.keywords.join(", ")}`);
@@ -19,7 +19,6 @@ export function renderCvMarkdown(resume) {
     }
     lines.push(`Technologies: ${job["x-technologies"].join(", ")}`, "");
     for (const line of job.highlights) lines.push(`- ${line}`);
-    if (job["x-moveReason"]) lines.push("", `*${job["x-moveReason"]}*`);
     lines.push("");
   }
   lines.push("## Soft Skills", "");
@@ -27,6 +26,6 @@ export function renderCvMarkdown(resume) {
   lines.push("", "## Education", "");
   for (const entry of resume.education) lines.push(`- ${educationLine(entry)}`);
   for (const v of resume.volunteer) lines.push(`- ${v.position}, ${v.organization}, ${dateRange(v.startDate, v.endDate)}. ${v.summary}`);
-  lines.push(`- Languages: ${resume.languages.map((l) => `${l.language} (${l.fluency.toLowerCase()})`).join(", ")}`, "");
+  lines.push("");
   return lines.join("\n");
 }

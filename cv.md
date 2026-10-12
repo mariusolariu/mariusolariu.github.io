@@ -2,22 +2,21 @@
 
 **Senior Full-Stack Software Engineer**
 
-London, UK | Settled status, no sponsorship needed | Prefers hybrid roles in London | marius.lucian.olariu@gmail.com | https://www.linkedin.com/in/mlo1994/ | https://github.com/mariusolariu
+London, UK | Settled status, no sponsorship needed | marius.lucian.olariu@gmail.com | https://www.linkedin.com/in/mlo1994/ | https://github.com/mariusolariu
 
 ## Summary
 
-I work mainly in Java and Spring Boot, and I build the frontend when a feature needs it, lately in TypeScript and Next.js. At Strategic Imperatives (November 2024 – present), most of my work has been on Elevate, a billing platform that processes around £100M a month for UK telecom resellers. Before that I built checkout services at Vodafone, where I was recognised as Top Talent and promoted to lead a team.
+I specialise in backend software development with Java, Spring and AWS; I am also familiar with frontend development using TypeScript, React and Next.js. At Strategic Imperatives (November 2024 – present), most of my work has been on Elevate, a billing platform that processes around £100M a month for UK telecom resellers. Before that I worked in the Checkout team at Vodafone, where my contribution earned the Vodafone Top Talent award and a promotion to team lead.
 
-Led the billing team's adoption of AI-assisted development. Story throughput at least doubled, with no production incidents attributable to it, and I was named the company's AI Champion.
+I share what I learn: talks on AI-assisted development at Vodafone and at Strategic Imperatives, where I led the billing team's adoption of it. Story throughput at least doubled, no production incident was attributed to it, and I received the company's AI Champion award.
 
 ## Technical Skills
 
-- **Backend:** Java 17+, Spring Boot, NestJS, Node.js, REST APIs, Microservices, Event-driven architecture
+- **Backend:** Java 17+, Spring Boot, REST APIs, Microservices, Event-driven architecture
 - **Frontend:** TypeScript, React, Next.js, JavaScript
-- **Cloud and infrastructure:** AWS (Lambda, Cognito, S3, SQS), Serverless Framework, Docker, CI/CD
+- **Cloud and infrastructure:** AWS
 - **Data:** MySQL, SQL, Liquibase
 - **Testing:** JUnit, Jest, Karate, Test-driven development
-- **AI-assisted development:** Claude Code, Agent configuration, Custom skills, MCP
 
 ## Experience
 
@@ -25,15 +24,14 @@ Led the billing team's adoption of AI-assisted development. Story throughput at 
 
 Cloud billing and fibre platforms for UK telecoms providers | Woking, hybrid | Nov 2024 – Present
 
-Technologies: Java, Spring Boot, AWS, SQL, MySQL, Liquibase, Docker, JUnit, Karate, Maven, Git, TypeScript, Next.js, NestJS, Serverless, AI-assisted development
+Technologies: Java, Spring Boot, AWS, SQL, MySQL, Liquibase, Docker, JUnit, Karate, Maven, Git, TypeScript, Next.js, Serverless
 
-- Spent most of my time there on the Elevate billing team, working across the codebase: payments, invoicing, the rental engine, the frontend and more. Elevate processes roughly £100M of monthly revenue and handles invoices with over a million call records.
+- Chose to return to hands-on engineering after leading a team at Vodafone, and have spent most of my time here on the Elevate billing team, working across the codebase: payments, invoicing, the rental engine, the frontend and more. Elevate processes roughly £100M of monthly revenue and handles invoices with over a million call records.
 - Contributed a good part of the architecture and early direction of View my Bill, a new brownfield project that lets our customers' own customers download their bills and see their consumption. It pairs a backend-for-frontend over our REST services with a Next.js app as the frontend.
 - Took part in the move away from monolithic systems towards Spring Boot microservices on Java 17 and above.
-- Led the team's adoption of AI-assisted development: a shared agent configuration, custom verification skills (browser smoke tests, an integration-test runner, pull-request follow-up) and a domain-knowledge index across about 33 repositories. Throughput at least doubled, and nothing we merged this way caused a production incident.
-- Gave two internal talks on AI-assisted development, with a third on the way, continuing a habit I started at Vodafone. I am the main contributor to a cross-team upskilling channel read by around 15 engineers, two tech leads and the Head of Engineering, and I received the AI Champion award at an investor-attended town hall.
-- Built the local-environment, deployment and AWS tooling the team relies on day to day, the sort of work a platform team would own in a larger company.
-- Moved in 2026 to the Fibre team, which had more demand than engineers, at my manager's request so the same practices could take root there. The stack is TypeScript, Next.js, NestJS, AWS Serverless and event-driven, which builds on the React and Node work from earlier in my career.
+- Led the team's adoption of AI-assisted development: a shared agent configuration, custom verification skills and a domain-knowledge index across about 33 repositories. Throughput at least doubled with no production incident attributed to it. Two internal talks on the subject, a cross-team upskilling channel I am the main contributor to, and the AI Champion award followed.
+- Built the shell tools an Elevate developer uses daily: launch the whole Java stack in one command, pull and initialise a client database from a production backup, and drive the test deployment server over a single shared SSH connection instead of a new login per command.
+- Moved in 2026 to the Fibre team, which had more demand than engineers, at my manager's request so the same practices could take root there. The stack is TypeScript, Next.js and AWS Serverless, which builds on the React and Node work from earlier in my career.
 
 ### Backend Software Engineer, then Software Team Lead, [VodafoneThree](https://www.vodafonethree.com)
 
@@ -43,13 +41,10 @@ Software Team Lead, Apr 2024 – Jul 2024; Backend Software Engineer, Feb 2023 �
 
 Technologies: Java, Spring Boot, AWS, JUnit, Maven, Git, Datadog
 
-- Built and maintained Java and Spring Boot microservices in the Checkout team, which collects customer details, takes payment and hands the order over to fulfilment.
-- Designed the pull-request standard the team adopted, and worked test-first throughout.
-- Gave a technical talk on AI-assisted development, the first of a series I have kept up since.
+- Built and maintained the Java and Spring Boot microservices behind Vodafone's online checkout, the last step of buying a plan or a phone: collecting the customer's details, verifying their identity, taking payment and handing the complete order to the fulfilment systems.
+- Improved how the team used Git and pull requests: small, well-titled commits, formatting changes kept out of functional ones, and pull requests that read as a story a reviewer can follow.
+- Gave a talk on ten use cases for AI in our work, the first of a series I have kept up since.
 - Recognised as Top Talent, one of four from about 80 engineers, while still a mid-level developer, and promoted to lead a team of seven: five developers, a tester and a scrum master.
-- As lead, persuaded the product owner, scrum master and analysts to adopt a definition of ready, so that two bootcamp juniors and colleagues working in their second language were not worn down by under-specified stories.
-
-*Left for a senior engineering role on a larger-scale platform.*
 
 ### Full-Stack Software Engineer, [IQVIA](https://www.iqvia.com)
 
@@ -57,10 +52,8 @@ Clinical research and health-data company | London, hybrid | Feb 2022 – Oct 20
 
 Technologies: Java, Groovy, Grails, AWS, SQL, JavaScript, Git
 
-- Worked across the stack in Groovy, Grails and JavaScript on an eSource and Phase I clinical-trial automation system used by the largest pharmaceutical companies, alongside project managers, biomedical engineers and product owners.
-- Handled troubleshooting, bug fixing and technical support for the clients who ran trials on it.
-
-*Left a legacy stack for a modern Java microservices team.*
+- Worked across the stack in Groovy, Grails and JavaScript on an eSource and Phase I clinical-trial automation system used by the largest pharmaceutical companies, working with biomedical engineers, product owners and other disciplines to derive requirements and find the right software solution for our customers.
+- Often provided third-line support for UK customers single-handedly in the UK morning, as most of the team was US-based and online from about 4pm. Unblocking large clinical sites, where studies with tens of patients were under way and a quick fix mattered, was the most rewarding part of the role.
 
 ### Software Engineer, [Diffblue](https://www.diffblue.com)
 
@@ -68,10 +61,8 @@ AI tool that writes unit tests for Java code | Oxford, hybrid | Aug 2020 – Feb
 
 Technologies: Java, Spring Boot, JUnit, Maven, Git
 
-- Wrote Java for Diffblue Cover, a tool that generates unit tests using reinforcement learning (AI). Set up and maintained the online environment used to trial the product.
-- My tech lead, who was growing me towards more responsibility, had me run some of the stand-ups and retrospectives. I also made a habit of studying one new topic relevant to the work every sprint.
-
-*Relocated to London and wanted to build user-facing systems again.*
+- Developed software in Java for Diffblue Cover, a tool that generates unit tests using reinforcement learning. Set up and maintained the online environment used to trial the product.
+- My tech lead, who saw my potential, had me run some of the stand-ups and retrospectives. I made the most of colleagues from computer-science academia and spent a lot of time, online and offline, learning from them.
 
 ### Junior Full-Stack Software Engineer, [New Verve Consulting](https://www.newverveconsulting.com)
 
@@ -82,26 +73,22 @@ Technologies: JavaScript, React, Node.js, AWS, Jest, Git
 - Designed and built a Jira Cloud add-on, a lightweight CRM, in React and Node on AWS, while finishing my MSc dissertation.
 - Mentored a technical consultant into a developer role.
 
-*Relocated to Oxford and took a Java role on a product applying reinforcement learning to test generation.*
-
 ### Junior Software Engineer, [SSI Schäfer](https://www.ssi-schaefer.com)
 
 Warehouse automation and storage systems | Timișoara, Romania | Sep 2017 – Aug 2018
 
 Technologies: Java, SQL, JUnit, Maven, Git
 
-- Wrote Java control software for a vertical lift warehouse module, in parallel with the final year of my BSc.
-
-*Moved to Scotland for an MSc.*
+- Contributed to the development of the Java control software for a vertical lift warehouse module, in parallel with the final year of my BSc.
 
 ## Soft Skills
 
-- **Team player.** Main contributor to the cross-team upskilling channel; as lead, kept two juniors clear of story churn.
-- **Clear communicator.** Three internal talks and counting; talked a product owner, scrum master and analysts into a definition of ready.
+- **Team player.** Main contributor to the cross-team upskilling channel; mentored juniors and other colleagues less experienced than me.
+- **Knowledge sharer.** A talk on developer productivity tools at Diffblue that surprised even the most senior engineers; a talk on ten use cases for AI at Vodafone; two talks on AI-assisted development at Strategic Imperatives, which with other contributions earned the AI Champion award.
 - **Personable.** I get on with the people I work with, and I have been trusted to mentor and to run ceremonies since early in my career.
 - **Mentor.** Coached a consultant into a developer role; taught coding to 7 to 18 year olds at YMCA Scotland for a year.
-- **Self-directed learner.** A new topic every sprint at Diffblue, the Oxford Saïd Senior Leadership Executive Programme in 2024, two Erasmus semesters, and a new TypeScript and NestJS stack in 2026.
-- **Takes ownership.** Built the team's environment and deployment tooling without being asked. At home I keep the same habit with Hammerspoon, Karabiner and chezmoi-managed dotfiles.
+- **Self-directed learner.** Each of those talks came from studying in my own time: the Oxford Saïd Senior Leadership Executive Programme in 2024, two Erasmus semesters, and a new TypeScript and Next.js stack in 2026.
+- **Takes ownership.** Built the team's environment and deployment tooling without being asked. I constantly automate my own ways of working, and AI has been a godsend for that.
 
 ## Education
 
@@ -110,4 +97,3 @@ Technologies: Java, SQL, JUnit, Maven, Git
 - BSc Computer and Software Engineering, Politehnica University Timișoara, distinction (2018)
 - Software Engineering, Erasmus exchange semesters, Linköping University and Radboud University (2017)
 - Coding Mentor, YMCA Scotland, Sep 2018 – Aug 2019. Taught coding to young people aged 7 to 18 in Paisley.
-- Languages: English (native or bilingual), Romanian (native or bilingual)

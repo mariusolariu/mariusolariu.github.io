@@ -18,6 +18,11 @@ const CV_DOCX_NAME = "Marius_Olariu_CV.docx";
 const SITE_TITLE = "Marius Olariu CV";
 const NEW_TAB_NOTICE = "(opens in a new tab)";
 const EXPECTED_TOP_SKILLS = ["Java", "TypeScript", "AWS", "Spring", "Next.js", "Git"];
+const EXPECTED_FACTS_LINE = "London, UK · Settled status, no sponsorship needed";
+const HYBRID_PREFERENCE = "Prefers hybrid roles";
+const REMOVED_HINT = "Click a technology";
+const RETIRED_TECHNOLOGIES = ["NestJS", "Node.js", "AI-assisted development"];
+const RETIRED_SKILL_GROUP = "AI-assisted development";
 
 const BANNED_PHRASES = [
   "leverag", "spearhead", "orchestrat", "championed", "foster", "passionate about",
@@ -102,11 +107,39 @@ test("site shows the top skills line exactly as agreed", () => {
   assert.deepEqual(skills, EXPECTED_TOP_SKILLS);
 });
 
-test("site and CV state the work preference", () => {
-  const availability = resume.basics["x-availability"];
-  assert.ok(availability, "x-availability missing from resume.json");
-  assert.ok(siteText.includes(availability), "availability missing from site");
-  assert.ok(cvMarkdown.includes(availability), "availability missing from cv.md");
+test("hero facts line states only the location and right to work", () => {
+  const facts = site.querySelector(".facts");
+  assert.ok(facts, "facts line missing");
+  assert.equal(textOf(facts), EXPECTED_FACTS_LINE);
+  assert.ok(!cvMarkdown.includes(HYBRID_PREFERENCE), "CV must not state the hybrid preference");
+  assert.ok(!cvMarkdown.includes("Languages:"), "CV must not list languages");
+});
+
+test("technology tags carry their own affordance and there is no instruction hint", () => {
+  assert.equal(site.querySelector(".hint"), null, "the hint paragraph was removed");
+  assert.ok(!siteText.includes(REMOVED_HINT), "hint text must not appear");
+  const tagRule = read("styles.css").match(/\.tag \{[^}]*\}/)?.[0] ?? "";
+  assert.ok(!/border:\s*1px solid transparent/.test(tagRule), "tags need a visible resting border");
+});
+
+test("jobs carry no reason-for-leaving line on the site or in the CV", () => {
+  for (const job of resume.work) {
+    assert.equal(job["x-moveReason"], undefined, `${job.name} still has x-moveReason`);
+  }
+  assert.equal(site.querySelector(".move"), null, "move paragraph still rendered");
+  assert.ok(!/^\*[^*]+\*$/m.test(cvMarkdown), "CV still has an italic move line");
+});
+
+test("retired technologies are gone from the skills and the Strategic Imperatives tags", () => {
+  const skillKeywords = resume.skills.flatMap((group) => group.keywords);
+  const skillGroups = resume.skills.map((group) => group.name);
+  const siTags = resume.work.find((job) => job.name === "Strategic Imperatives")["x-technologies"];
+  for (const retired of RETIRED_TECHNOLOGIES) {
+    assert.ok(!skillKeywords.includes(retired), `${retired} still listed in skills`);
+    assert.ok(!siTags.includes(retired), `${retired} still tagged on Strategic Imperatives`);
+  }
+  assert.ok(!skillGroups.includes(RETIRED_SKILL_GROUP), `${RETIRED_SKILL_GROUP} group still present`);
+  assert.deepEqual(resume.skills.find((group) => group.name === "Cloud and infrastructure").keywords, ["AWS"]);
 });
 
 test("site links to LinkedIn and GitHub and does not expose a plain mailto", () => {
@@ -138,9 +171,6 @@ test("every job appears on the site with its company link, description, dates an
     assert.deepEqual(tags.map(textOf), job["x-technologies"], `${job.name} tags should show the plain technology name`);
     for (const highlight of job.highlights) {
       assert.ok(text.includes(highlight), `highlight missing for ${job.name}: ${highlight.slice(0, 40)}`);
-    }
-    if (job["x-moveReason"]) {
-      assert.ok(text.includes(job["x-moveReason"]), `move reason missing for ${job.name}`);
     }
   });
 });

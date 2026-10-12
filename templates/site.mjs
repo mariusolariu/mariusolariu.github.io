@@ -49,8 +49,6 @@ function renderCompanyLink(job) {
 function renderJob(job) {
   const highlights = job.highlights.map((line) => `
         <li>${h(line)}</li>`).join("");
-  const move = job["x-moveReason"] ? `
-      <p class="move"><em>${h(job["x-moveReason"])}</em></p>` : "";
   return `
     <article class="job">
       <h3>${h(job.position)}</h3>
@@ -59,7 +57,7 @@ function renderJob(job) {
       ${renderPositions(job)}
       ${renderTags(job)}
       <ul class="highlights">${highlights}
-      </ul>${move}
+      </ul>
     </article>`;
 }
 
@@ -85,7 +83,6 @@ export function renderSite(resume) {
   const education = resume.education.map((entry) => `
       <li>${h(educationLine(entry))}</li>`).join("");
   const volunteering = resume.volunteer.map((v) => `${v.position} at ${v.organization}, ${dateRange(v.startDate, v.endDate)}. ${v.summary}`).join(" ");
-  const languages = resume.languages.map((l) => l.language).join(" and ");
 
   return `<!DOCTYPE html>
 <html lang="en-GB">
@@ -126,7 +123,7 @@ export function renderSite(resume) {
     <section id="summary" class="hero" aria-labelledby="hero-title">
       <p class="kicker">${h(basics.label)}</p>
       <h1 id="hero-title">${h(basics.name)}</h1>
-      <p class="facts">${h(basics.location.city)}, UK · ${h(basics["x-rightToWork"])} · ${h(basics["x-availability"])} · ${h(languages)}</p>
+      <p class="facts">${h(basics.location.city)}, UK · ${h(basics["x-rightToWork"])}</p>
       <p class="summary">${h(basics.summary)}</p>
       <p class="top-skills__label">Top skills</p>
       <ul class="top-skills" data-top-skills>${topSkills}</ul>
@@ -140,7 +137,6 @@ export function renderSite(resume) {
 
     <section id="experience" aria-labelledby="experience-title">
       <h2 id="experience-title">Experience</h2>
-      <p class="hint">Click a technology to see every role where I used it.</p>
       <p class="filter-status" data-filter-status aria-live="polite" hidden></p>
       ${resume.work.map(renderJob).join("\n")}
     </section>
