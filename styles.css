@@ -96,8 +96,11 @@ em { font-style: italic; }
 .site-header__controls {
   display: flex;
   align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
   gap: 0.75rem;
   margin-left: auto;
+  max-width: 100%;
 }
 .text-size { display: flex; gap: 0.25rem; }
 .text-size button {
@@ -124,7 +127,8 @@ em { font-style: italic; }
   text-decoration: none;
   padding: 0.55rem 1rem;
   border-radius: 4px;
-  white-space: nowrap;
+  text-align: center;
+  max-width: 100%;
 }
 .button:hover { filter: brightness(1.1); }
 
@@ -183,6 +187,7 @@ section { padding: 2.5rem 0 0.5rem; }
   margin-top: 1.2rem;
 }
 .contact li { margin: 0; }
+.contact a, .site-footer a, .site-footer p { overflow-wrap: anywhere; }
 
 .hint { color: var(--text-secondary); font-size: 0.95rem; }
 
