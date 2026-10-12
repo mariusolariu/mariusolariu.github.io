@@ -83,7 +83,10 @@ test("site header has sticky controls: text size buttons and a CV download link"
   assert.ok(toggle.getAttribute("aria-label"), "theme toggle needs an aria-label");
   assert.ok(toggle.hasAttribute("aria-pressed"), "theme toggle needs aria-pressed");
   assert.ok(read("styles.css").includes('[data-theme="dark"]'), "stylesheet lacks the manual dark theme selector");
-  assert.ok(siteHtml.includes('localStorage.getItem("theme")'), "head must apply the stored theme before first paint");
+  assert.ok(toggle.querySelector("[data-theme-label]"), "theme toggle needs a visible text label");
+  assert.match(siteHtml, /<script>[^<]*document\.cookie[^<]*dataset\.theme[^<]*<\/script>/, "head must apply the theme cookie before first paint");
+  assert.ok(siteHtml.includes('<script src="script.js?v='), "script.js must be cache-busted with a content hash");
+  assert.ok(siteHtml.includes('href="styles.css?v='), "styles.css must be cache-busted with a content hash");
 });
 
 test("site shows the top skills line exactly as agreed", () => {

@@ -135,17 +135,18 @@ em { font-style: italic; }
 
 .theme-toggle {
   font: inherit;
-  font-size: 1rem;
-  min-width: 2.4rem;
+  font-size: 0.9rem;
+  font-weight: 600;
   min-height: 2.4rem;
-  padding: 0;
+  padding: 0 0.8rem;
   background: transparent;
-  color: var(--text);
-  border: 1px solid var(--border);
+  color: var(--accent);
+  border: 2px solid var(--accent);
   border-radius: 4px;
   cursor: pointer;
+  white-space: nowrap;
 }
-.theme-toggle:hover { border-color: var(--accent); }
+.theme-toggle:hover { background: var(--accent); color: var(--accent-contrast); }
 
 .button {
   display: inline-block;

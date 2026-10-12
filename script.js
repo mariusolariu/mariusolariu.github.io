@@ -8,10 +8,12 @@
   var TEXT_SIZE_DEFAULT = 100;
   var BASE_FONT_SIZE_PERCENT = 112.5;
 
-  var THEME_KEY = "theme";
+  var THEME_COOKIE_NAME = "theme";
+  var THEME_COOKIE_MAX_AGE_SECONDS = 60 * 60 * 24 * 365;
   var THEME_DARK = "dark";
   var THEME_LIGHT = "light";
   var THEME_GLYPHS = { dark: "\u2600", light: "\u263E" };
+  var THEME_LABELS = { dark: "Light mode", light: "Dark mode" };
   var DARK_SCHEME_QUERY = "(prefers-color-scheme: dark)";
 
   var ACTIVE_TAG_CLASS = "is-active";
@@ -98,10 +100,23 @@
     });
   }
 
+  function readThemeCookie() {
+    var match = document.cookie.match(new RegExp("(?:^|; )" + THEME_COOKIE_NAME + "=(dark|light)"));
+    return match ? match[1] : null;
+  }
+
+  function writeThemeCookie(theme) {
+    document.cookie = THEME_COOKIE_NAME + "=" + theme + "; max-age=" + THEME_COOKIE_MAX_AGE_SECONDS + "; path=/; SameSite=Lax";
+  }
+
   function setupThemeToggle() {
     var toggle = document.querySelector("[data-theme-toggle]");
     if (!toggle) return;
-    var glyph = toggle.querySelector("[aria-hidden='true']");
+    var glyph = toggle.querySelector("[data-theme-glyph]");
+    var label = toggle.querySelector("[data-theme-label]");
+
+    var stored = readThemeCookie();
+    if (stored) document.documentElement.dataset.theme = stored;
 
     function effectiveTheme() {
       var chosen = document.documentElement.dataset.theme;
@@ -110,20 +125,18 @@
     }
 
     function render() {
-      var isDark = effectiveTheme() === THEME_DARK;
+      var current = effectiveTheme();
+      var isDark = current === THEME_DARK;
       glyph.textContent = isDark ? THEME_GLYPHS.dark : THEME_GLYPHS.light;
-      toggle.setAttribute("aria-label", isDark ? "Switch to light mode" : "Switch to dark mode");
+      label.textContent = THEME_LABELS[current];
+      toggle.setAttribute("aria-label", "Switch to " + THEME_LABELS[current].toLowerCase());
       toggle.setAttribute("aria-pressed", isDark ? "true" : "false");
     }
 
     toggle.addEventListener("click", function () {
       var next = effectiveTheme() === THEME_DARK ? THEME_LIGHT : THEME_DARK;
       document.documentElement.dataset.theme = next;
-      try {
-        window.localStorage.setItem(THEME_KEY, next);
-      } catch (error) {
-        /* storage unavailable: the theme still applies for this page view */
-      }
+      writeThemeCookie(next);
       render();
     });
 

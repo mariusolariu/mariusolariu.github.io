@@ -1,7 +1,18 @@
 import { execFileSync } from "node:child_process";
+import { createHash } from "node:crypto";
+import { readFileSync } from "node:fs";
 import { CV_PDF_NAME, dateRange, educationLine, escapeHtml as h, profileByNetwork } from "./shared.mjs";
 
 const SITE_DESCRIPTION = "CV of Marius Olariu, Senior Full-Stack Software Engineer in London. Java, Spring Boot, TypeScript, Next.js and AWS.";
+const ASSET_HASH_LENGTH = 8;
+const THEME_COOKIE_NAME = "theme";
+
+function assetUrl(file) {
+  const content = readFileSync(new URL(`../${file}`, import.meta.url));
+  const hash = createHash("sha256").update(content).digest("hex").slice(0, ASSET_HASH_LENGTH);
+  return `${file}?v=${hash}`;
+}
+
 const UPDATED_LABEL = lastResumeChange().toLocaleDateString("en-GB", { month: "long", year: "numeric" });
 
 function lastResumeChange() {
@@ -82,8 +93,8 @@ export function renderSite(resume) {
   <link rel="canonical" href="${h(basics.url)}/">
   <link rel="alternate" type="application/json" href="resume.json" title="JSON Resume">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23244A63'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='system-ui' font-size='17' font-weight='700' fill='white'%3EMO%3C/text%3E%3C/svg%3E">
-  <script>try { var storedTheme = localStorage.getItem("theme"); if (storedTheme) document.documentElement.dataset.theme = storedTheme; } catch (error) {}</script>
-  <link rel="stylesheet" href="styles.css">
+  <script>var themeCookie = document.cookie.match(/(?:^|; )${THEME_COOKIE_NAME}=(dark|light)/); if (themeCookie) document.documentElement.dataset.theme = themeCookie[1];</script>
+  <link rel="stylesheet" href="${assetUrl("styles.css")}">
   <meta property="og:title" content="Marius Olariu, Senior Full-Stack Software Engineer">
   <meta property="og:description" content="${h(SITE_DESCRIPTION)}">
   <meta property="og:type" content="profile">
@@ -99,7 +110,7 @@ export function renderSite(resume) {
           <button type="button" data-text-size="decrease" aria-label="Decrease text size">A&minus;</button>
           <button type="button" data-text-size="increase" aria-label="Increase text size">A+</button>
         </div>
-        <button type="button" class="theme-toggle" data-theme-toggle aria-label="Switch to dark mode" aria-pressed="false"><span aria-hidden="true">&#9790;</span></button>
+        <button type="button" class="theme-toggle" data-theme-toggle aria-label="Switch to dark mode" aria-pressed="false"><span aria-hidden="true" data-theme-glyph>&#9790;</span> <span data-theme-label>Dark mode</span></button>
         <a class="button" href="${CV_PDF_NAME}" download>Download CV <span aria-hidden="true">&#8595;</span></a>
       </div>
     </div>
@@ -152,7 +163,7 @@ export function renderSite(resume) {
     <p>Last updated ${h(UPDATED_LABEL)}.</p>
   </footer>
 
-  <script src="script.js"></script>
+  <script src="${assetUrl("script.js")}"></script>
 </body>
 </html>
 `;
