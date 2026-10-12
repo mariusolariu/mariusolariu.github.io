@@ -17,4 +17,4 @@ jobs:
       - run: npm ci
       - run: npm test
       - name: Fail if generated files are stale
-        run: git diff --exit-code -- index.html cv.html cv.md
+        run: git diff --exit-code -- index.html cv.md

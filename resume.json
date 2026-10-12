@@ -5,7 +5,7 @@
     "label": "Senior Full-Stack Software Engineer",
     "email": "marius.lucian.olariu@gmail.com",
     "url": "https://mariusolariu.github.io",
-    "summary": "I work mainly in Java and Spring Boot, and I build the frontend when a feature needs it, lately in TypeScript and Next.js. For over two years I have been at Strategic Imperatives, most of that on Elevate, a billing platform that processes around £100M a month for UK telecom resellers. Before that I built checkout services at Vodafone, where I was recognised as Top Talent and promoted to lead a team.",
+    "summary": "I work mainly in Java and Spring Boot, and I build the frontend when a feature needs it, lately in TypeScript and Next.js. At Strategic Imperatives (November 2024 – present), most of my work has been on Elevate, a billing platform that processes around £100M a month for UK telecom resellers. Before that I built checkout services at Vodafone, where I was recognised as Top Talent and promoted to lead a team.",
     "location": {
       "city": "London",
       "countryCode": "GB",
@@ -24,18 +24,20 @@
       }
     ],
     "x-rightToWork": "Settled status, no sponsorship needed",
+    "x-availability": "Prefers hybrid roles in London",
     "x-topSkills": ["Java", "TypeScript", "AWS", "Spring", "Next.js", "Git"],
     "x-differentiator": "Led the billing team's adoption of AI-assisted development. Story throughput at least doubled, with no production incidents attributable to it, and I was named the company's AI Champion."
   },
   "work": [
     {
       "name": "Strategic Imperatives",
+      "description": "Cloud billing and fibre platforms for UK telecoms providers",
+      "url": "https://www.imperatives.co.uk",
       "position": "Senior Full-Stack Software Engineer",
       "location": "Woking, hybrid",
       "startDate": "2024-11",
       "endDate": null,
-      "x-durationLabel": "over two years",
-      "x-technologies": ["Java", "Spring Boot", "AWS", "SQL", "JUnit", "Maven", "Git", "TypeScript", "Next.js", "NestJS", "Serverless", "AI-assisted development"],
+      "x-technologies": ["Java", "Spring Boot", "AWS", "SQL", "MySQL", "Liquibase", "Docker", "JUnit", "Karate", "Maven", "Git", "TypeScript", "Next.js", "NestJS", "Serverless", "AI-assisted development"],
       "highlights": [
         "Spent most of my time there on the Elevate billing team, working across the codebase: payments, invoicing, the rental engine, the frontend and more. Elevate processes roughly £100M of monthly revenue and handles invoices with over a million call records.",
         "Contributed a good part of the architecture and early direction of View my Bill, a new brownfield project that lets our customers' own customers download their bills and see their consumption. It pairs a backend-for-frontend over our REST services with a Next.js app as the frontend.",
@@ -48,6 +50,8 @@
     },
     {
       "name": "VodafoneThree",
+      "description": "UK mobile and broadband network operator",
+      "url": "https://www.vodafonethree.com",
       "position": "Backend Software Engineer, then Software Team Lead",
       "location": "London, hybrid",
       "startDate": "2023-02",
@@ -68,8 +72,10 @@
     },
     {
       "name": "IQVIA",
+      "description": "Clinical research and health-data company",
+      "url": "https://www.iqvia.com",
       "position": "Full-Stack Software Engineer",
-      "location": "London",
+      "location": "London, hybrid",
       "startDate": "2022-02",
       "endDate": "2022-10",
       "x-technologies": ["Java", "Groovy", "Grails", "AWS", "SQL", "JavaScript", "Git"],
@@ -81,8 +87,10 @@
     },
     {
       "name": "Diffblue",
+      "description": "AI tool that writes unit tests for Java code",
+      "url": "https://www.diffblue.com",
       "position": "Software Engineer",
-      "location": "Oxford",
+      "location": "Oxford, hybrid",
       "startDate": "2020-08",
       "endDate": "2022-02",
       "x-technologies": ["Java", "Spring Boot", "JUnit", "Maven", "Git"],
@@ -94,6 +102,8 @@
     },
     {
       "name": "New Verve Consulting",
+      "description": "Atlassian partner consultancy (Jira and Confluence)",
+      "url": "https://www.newverveconsulting.com",
       "position": "Junior Full-Stack Software Engineer",
       "location": "Glasgow",
       "startDate": "2019-08",
@@ -107,6 +117,8 @@
     },
     {
       "name": "SSI Schäfer",
+      "description": "Warehouse automation and storage systems",
+      "url": "https://www.ssi-schaefer.com",
       "position": "Junior Software Engineer",
       "location": "Timișoara, Romania",
       "startDate": "2017-09",
@@ -129,32 +141,11 @@
   "skills": [
     { "name": "Backend", "keywords": ["Java 17+", "Spring Boot", "NestJS", "Node.js", "REST APIs", "Microservices", "Event-driven architecture"] },
     { "name": "Frontend", "keywords": ["TypeScript", "React", "Next.js", "JavaScript"] },
-    { "name": "Cloud and infrastructure", "keywords": ["AWS (Lambda, Cognito, S3, SQS)", "Serverless Framework", "Terraform", "Docker", "CI/CD"] },
+    { "name": "Cloud and infrastructure", "keywords": ["AWS (Lambda, Cognito, S3, SQS)", "Serverless Framework", "Docker", "CI/CD"] },
     { "name": "Data", "keywords": ["MySQL", "SQL", "Liquibase"] },
     { "name": "Testing", "keywords": ["JUnit", "Jest", "Karate", "Test-driven development"] },
     { "name": "AI-assisted development", "keywords": ["Claude Code", "Agent configuration", "Custom skills", "MCP"] }
   ],
-  "x-skillEmoji": {
-    "Java": "☕",
-    "Spring Boot": "🌱",
-    "AWS": "☁️",
-    "SQL": "🗄️",
-    "JUnit": "✅",
-    "Maven": "📦",
-    "Git": "🔀",
-    "TypeScript": "🔷",
-    "JavaScript": "🟨",
-    "React": "⚛️",
-    "Next.js": "▲",
-    "NestJS": "🐈",
-    "Node.js": "🟢",
-    "Serverless": "⚡",
-    "Jest": "🃏",
-    "Groovy": "🟤",
-    "Grails": "🔵",
-    "Datadog": "🐶",
-    "AI-assisted development": "🤖"
-  },
   "education": [
     { "institution": "University of Oxford, Saïd Business School", "area": "Senior Leadership Executive Programme", "studyType": "Executive programme", "startDate": "2024-05", "endDate": "2024-11" },
     { "institution": "University of the West of Scotland", "area": "Mobile and Web Development", "studyType": "MSc", "startDate": "2018", "endDate": "2019", "score": "Distinction" },

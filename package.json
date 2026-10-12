@@ -7,7 +7,7 @@
   "scripts": {
     "build": "node build.mjs",
     "test": "npm run build && node --test",
-    "pdf": "node scripts/make-cv-files.mjs"
+    "cv": "node scripts/make-cv-files.mjs"
   },
   "devDependencies": {
     "html-validate": "^9.5.0",

@@ -1,11 +1,10 @@
 import { readFileSync, writeFileSync } from "node:fs";
 import { renderSite } from "./templates/site.mjs";
-import { renderCv, renderCvMarkdown } from "./templates/cv.mjs";
+import { renderCvMarkdown } from "./templates/cv.mjs";
 
 const RESUME_FILE = new URL("./resume.json", import.meta.url);
 const OUTPUTS = {
   "index.html": renderSite,
-  "cv.html": renderCv,
   "cv.md": renderCvMarkdown
 };
 
