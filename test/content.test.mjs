@@ -21,6 +21,10 @@ const EXPECTED_TOP_SKILLS = ["Java", "TypeScript", "AWS", "Spring", "React"];
 const REACT_SKILL = "React";
 const SUMMARY_EFFORT_PHRASE = "constant effort and dedication";
 const TOP_TALENT_PHRASE = "Top Talent";
+const NEW_VERVE_NAME = "New Verve Consulting";
+const SSI_NAME = "SSI Schäfer";
+const NEW_VERVE_WORK_PATTERN = "on site, full-time";
+const SSI_WORK_PATTERN = "on site, part-time";
 const HIGHLIGHT_LABEL = "Recent highlight";
 const HIGHLIGHT_LINK_TEXT = "More at Strategic Imperatives section";
 const OLD_HIGHLIGHT_CLASS = "differentiator";
@@ -176,6 +180,18 @@ test("shouldNameStrategicImperativesAndLinkToItsRoleWhenRenderingTheHighlight", 
 test("shouldNotRepeatTheHighlightInTheCvSummaryWhenRenderingTheCv", () => {
   assert.ok(!cvMarkdown.includes(resume.basics["x-highlight"]));
   assert.equal(resume.basics["x-differentiator"], undefined);
+});
+
+test("shouldStateWorkPatternForNewVerveAndSsiWhenShowingJobs", () => {
+  const expectations = [[NEW_VERVE_NAME, NEW_VERVE_WORK_PATTERN], [SSI_NAME, SSI_WORK_PATTERN]];
+  const articles = site.querySelectorAll("section#experience article");
+  for (const [company, pattern] of expectations) {
+    const job = resume.work.find((entry) => entry.name === company);
+    assert.ok(job.location.endsWith(pattern), `${company} location lacks ${pattern}`);
+    const article = articles.find((a) => textOf(a).includes(company));
+    assert.ok(textOf(article).includes(pattern), `${company} site entry lacks ${pattern}`);
+    assert.ok(cvMarkdown.includes(`${job.location} |`), `${company} CV line lacks ${pattern}`);
+  }
 });
 
 test("hero facts line states only the location and right to work", () => {

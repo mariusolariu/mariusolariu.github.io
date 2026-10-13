@@ -64,7 +64,7 @@ Technologies: Java, Spring Boot, JUnit, Maven, Git
 
 ### Junior Full-Stack Software Engineer, [New Verve Consulting](https://www.newverveconsulting.com)
 
-Atlassian partner consultancy (Jira and Confluence) | Glasgow | Aug 2019 – Aug 2020
+Atlassian partner consultancy (Jira and Confluence) | Glasgow, on site, full-time | Aug 2019 – Aug 2020
 
 Technologies: JavaScript, React, Node.js, AWS, Jest, Git
 
@@ -73,7 +73,7 @@ Technologies: JavaScript, React, Node.js, AWS, Jest, Git
 
 ### Junior Software Engineer, [SSI Schäfer](https://www.ssi-schaefer.com)
 
-Warehouse automation and storage systems | Timișoara, Romania | Sep 2017 – Aug 2018
+Warehouse automation and storage systems | Timișoara, Romania, on site, part-time | Sep 2017 – Aug 2018
 
 Technologies: Java, SQL, JUnit, Maven, Git
 
