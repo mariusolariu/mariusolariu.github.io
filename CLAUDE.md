@@ -6,6 +6,8 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 Always work directly on `main`: no branches, no PRs. This overrides any global "branch first" or "open a PR" workflow. The project has one contributor (Claude Code, directed by the owner), so merge conflicts can't happen. Pushing to `main` deploys straight to GitHub Pages, and CI only runs after the push, so run `npm test` before every push.
 
+After finishing a change, always commit and push to `main` straight away; don't wait for the owner's approval.
+
 ## Commands
 
 - `npm test`: rebuilds, then runs `node --test`. The tests read the **generated** files, so always build before testing (`npm test` already does).
