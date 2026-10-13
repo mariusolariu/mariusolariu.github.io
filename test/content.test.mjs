@@ -21,6 +21,9 @@ const EXPECTED_TOP_SKILLS = ["Java", "TypeScript", "AWS", "Spring", "React"];
 const REACT_SKILL = "React";
 const SUMMARY_EFFORT_PHRASE = "constant effort and dedication";
 const TOP_TALENT_PHRASE = "Top Talent";
+const HIGHLIGHT_LABEL = "Recent highlight";
+const HIGHLIGHT_LINK_TEXT = "Details under Experience";
+const OLD_HIGHLIGHT_CLASS = "differentiator";
 const SUMMARY_BANNED_PHRASES = ["team lead", "promotion"];
 const EXPECTED_FACTS_LINE = "London, UK · Settled status, no sponsorship needed";
 const HYBRID_PREFERENCE = "Prefers hybrid roles";
@@ -144,6 +147,35 @@ test("shouldMentionTopTalentWithoutTeamLeadPromotionWhenReadingSummary", () => {
   assert.ok(summary.includes(SUMMARY_EFFORT_PHRASE));
   assert.ok(summary.includes(TOP_TALENT_PHRASE));
   for (const phrase of SUMMARY_BANNED_PHRASES) assert.ok(!summary.toLowerCase().includes(phrase), `summary still says ${phrase}`);
+});
+
+test("shouldLabelTheHeroHighlightWhenRenderingTheHero", () => {
+  const label = site.querySelector(".hero-label + .highlight")?.previousElementSibling;
+  assert.ok(label, "highlight has no label directly above it");
+  assert.equal(textOf(label), HIGHLIGHT_LABEL);
+});
+
+test("shouldNotStyleTheHighlightAsAQuoteWhenRenderingTheHero", () => {
+  assert.equal(site.querySelector("blockquote"), null);
+  assert.equal(site.querySelector(`.${OLD_HIGHLIGHT_CLASS}`), null);
+  assert.ok(!read("styles.css").includes(`.${OLD_HIGHLIGHT_CLASS}`), "old quote styling is still in styles.css");
+});
+
+test("shouldNameStrategicImperativesAndLinkToItsRoleWhenRenderingTheHighlight", () => {
+  const highlight = site.querySelector(".highlight");
+  assert.ok(textOf(highlight).includes(SI_FULL_NAME));
+  const link = highlight.querySelector("a");
+  assert.equal(textOf(link), HIGHLIGHT_LINK_TEXT);
+  const target = link.getAttribute("href");
+  assert.ok(target.startsWith("#"));
+  const role = site.querySelector(`section#experience article${target}`);
+  assert.ok(role, `${target} does not point at a role`);
+  assert.ok(textOf(role).includes(SI_FULL_NAME));
+});
+
+test("shouldNotRepeatTheHighlightInTheCvSummaryWhenRenderingTheCv", () => {
+  assert.ok(!cvMarkdown.includes(resume.basics["x-highlight"]));
+  assert.equal(resume.basics["x-differentiator"], undefined);
 });
 
 test("hero facts line states only the location and right to work", () => {

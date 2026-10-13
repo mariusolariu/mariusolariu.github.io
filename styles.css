@@ -191,7 +191,7 @@ section { padding: 2.5rem 0 0.5rem; }
 }
 .facts { color: var(--text-secondary); margin: 0.6rem 0 1.4rem; }
 .summary { font-size: 1.1rem; max-width: 42rem; }
-.top-skills__label {
+.hero-label {
   font-size: 0.85rem;
   font-weight: 650;
   text-transform: uppercase;
@@ -214,11 +214,8 @@ section { padding: 2.5rem 0 0.5rem; }
   border-radius: 4px;
   font-weight: 600;
 }
-.differentiator {
-  border-left: 3px solid var(--accent);
-  padding-left: 1rem;
-  max-width: 42rem;
-}
+.highlight { max-width: 42rem; margin-bottom: 1.4rem; }
+.job { scroll-margin-top: 5rem; }
 .contact {
   list-style: none;
   padding: 0;

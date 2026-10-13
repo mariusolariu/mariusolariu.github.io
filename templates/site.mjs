@@ -8,6 +8,9 @@ const ASSET_HASH_LENGTH = 8;
 const THEME_COOKIE_NAME = "theme";
 const NEW_TAB_NOTICE = "(opens in a new tab)";
 const DOWNLOAD_LABEL = "Download CV (Word)";
+const HIGHLIGHT_LABEL = "Recent highlight";
+const HIGHLIGHT_LINK_TEXT = "Details under Experience";
+const HIGHLIGHT_ROLE = "Strategic Imperatives";
 const TOP_SKILL_FILTER_ALIASES = { Spring: "Spring Boot" };
 
 function assetUrl(file) {
@@ -54,11 +57,15 @@ function renderCompanyLink(job) {
   return `<a class="company" href="${h(job.url)}" target="_blank" rel="noopener noreferrer">${h(job.name)}<span aria-hidden="true">&nbsp;&#8599;</span><span class="visually-hidden"> ${NEW_TAB_NOTICE}</span></a>`;
 }
 
+function jobId(job) {
+  return `job-${job.name.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`;
+}
+
 function renderJob(job) {
   const highlights = job.highlights.map((line) => `
         <li>${h(line)}</li>`).join("");
   return `
-    <article class="job">
+    <article class="job" id="${jobId(job)}">
       <h3>${h(job.position)}</h3>
       <p class="meta">${renderCompanyLink(job)} · ${h(job.location)} · <time datetime="${h(job.startDate)}">${h(dateRange(job.startDate, job.endDate))}</time></p>
       <p class="company-description">${h(job.description)}</p>
@@ -87,6 +94,7 @@ export function renderSite(resume) {
   const linkedin = profileByNetwork(resume, "LinkedIn");
   const github = profileByNetwork(resume, "GitHub");
   const [emailUser, emailDomain] = basics.email.split("@");
+  const highlightRole = resume.work.find((job) => job.name === HIGHLIGHT_ROLE);
   const topSkills = renderTopSkills(basics["x-topSkills"]);
   const education = resume.education.map((entry) => `
       <li>${h(educationLine(entry))}</li>`).join("");
@@ -133,9 +141,10 @@ export function renderSite(resume) {
       <h1 id="hero-title">${h(basics.name)}</h1>
       <p class="facts">${h(basics.location.city)}, UK · ${h(basics["x-rightToWork"])}</p>
       <p class="summary">${h(basics.summary)}</p>
-      <p class="top-skills__label">Top skills</p>
+      <p class="hero-label">Top skills</p>
       <ul class="top-skills" data-top-skills>${topSkills}</ul>
-      <p class="differentiator">${h(basics["x-differentiator"])}</p>
+      <p class="hero-label">${HIGHLIGHT_LABEL}</p>
+      <p class="highlight">${h(basics["x-highlight"])} <a href="#${jobId(highlightRole)}">${HIGHLIGHT_LINK_TEXT}</a>.</p>
       <ul class="contact">
         <li><a href="${h(linkedin.url)}" rel="me">LinkedIn</a></li>
         <li><a href="${h(github.url)}" rel="me">GitHub</a></li>

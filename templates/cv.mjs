@@ -7,7 +7,7 @@ export function renderCvMarkdown(resume) {
   const lines = [];
   lines.push(`# ${basics.name}`, "", `**${basics.label}**`, "",
     `${basics.location.city}, UK | ${basics["x-rightToWork"]} | ${basics.email} | ${linkedin.url} | ${github.url}`, "",
-    "## Summary", "", basics.summary, "", basics["x-differentiator"], "",
+    "## Summary", "", basics.summary, "",
     "## Technical Skills", "");
   for (const group of resume.skills) lines.push(`- **${group.name}:** ${group.keywords.join(", ")}`);
   lines.push("", "## Experience", "");
