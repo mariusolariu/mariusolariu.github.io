@@ -9,7 +9,7 @@ const THEME_COOKIE_NAME = "theme";
 const NEW_TAB_NOTICE = "(opens in a new tab)";
 const DOWNLOAD_LABEL = "Download CV (Word)";
 const HIGHLIGHT_LABEL = "Recent highlight";
-const HIGHLIGHT_LINK_TEXT = "Details under Experience";
+const HIGHLIGHT_LINK_TEXT = "More on this role";
 const HIGHLIGHT_ROLE = "Strategic Imperatives";
 const TOP_SKILL_FILTER_ALIASES = { Spring: "Spring Boot" };
 
