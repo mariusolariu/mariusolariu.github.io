@@ -19,6 +19,9 @@ const SITE_TITLE = "Marius Olariu CV";
 const NEW_TAB_NOTICE = "(opens in a new tab)";
 const EXPECTED_TOP_SKILLS = ["Java", "TypeScript", "AWS", "Spring", "React"];
 const REACT_SKILL = "React";
+const SUMMARY_EFFORT_PHRASE = "constant effort and dedication";
+const TOP_TALENT_PHRASE = "Top Talent";
+const SUMMARY_BANNED_PHRASES = ["team lead", "promotion"];
 const EXPECTED_FACTS_LINE = "London, UK · Settled status, no sponsorship needed";
 const HYBRID_PREFERENCE = "Prefers hybrid roles";
 const REMOVED_HINT = "Click a technology";
@@ -134,6 +137,13 @@ test("every top skill is a filter button that matches at least one job tag", () 
 test("Strategic Imperatives lists React among its technologies", () => {
   const siTags = resume.work.find((job) => job.name === SI_FULL_NAME)["x-technologies"];
   assert.ok(siTags.includes(REACT_SKILL));
+});
+
+test("shouldMentionTopTalentWithoutTeamLeadPromotionWhenReadingSummary", () => {
+  const summary = resume.basics.summary;
+  assert.ok(summary.includes(SUMMARY_EFFORT_PHRASE));
+  assert.ok(summary.includes(TOP_TALENT_PHRASE));
+  for (const phrase of SUMMARY_BANNED_PHRASES) assert.ok(!summary.toLowerCase().includes(phrase), `summary still says ${phrase}`);
 });
 
 test("hero facts line states only the location and right to work", () => {
