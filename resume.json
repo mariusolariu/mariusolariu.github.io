@@ -123,12 +123,12 @@
     }
   ],
   "x-softSkills": [
-    { "name": "Team player", "evidence": "Main contributor to the cross-team upskilling channel; mentored juniors and other colleagues less experienced than me." },
-    { "name": "Knowledge sharer", "evidence": "A talk on developer productivity tools at Diffblue that surprised even the most senior engineers; a talk on ten use cases for AI at Vodafone; two talks on AI-assisted development at Strategic Imperatives, which with other contributions earned the AI Champion award." },
+    { "name": "Team player", "evidence": "Main contributor to the cross-team upskilling channel at Strategic Imperatives; mentored juniors and other colleagues less experienced than me." },
+    { "name": "Knowledge sharer", "evidence": "A talk on developer productivity tools at Diffblue that surprised even the most senior engineers; a talk on ten use cases for AI at Vodafone; two talks on AI-assisted development at Strategic Imperatives, which with other contributions earned me the AI Champion award." },
     { "name": "Personable", "evidence": "I get on with the people I work with, and I have been trusted to mentor and to run ceremonies since early in my career." },
-    { "name": "Mentor", "evidence": "Coached a consultant into a developer role; taught coding to 7 to 18 year olds at YMCA Scotland for a year." },
-    { "name": "Self-directed learner", "evidence": "Each of those talks came from studying in my own time: the Oxford Saïd Senior Leadership Executive Programme in 2024, two Erasmus semesters, and a new TypeScript and Next.js stack in 2026." },
-    { "name": "Takes ownership", "evidence": "Built the team's environment and deployment tooling without being asked. I constantly automate my own ways of working, and AI has been a godsend for that." }
+    { "name": "Mentor", "evidence": "Coached a technical consultant and helped him to transition into the software developer role while at New Verve Consulting; taught coding to 7 to 18 year olds at YMCA Paisley for a year." },
+    { "name": "Self-directed learner", "evidence": "Each of the talks above came from studying in my own time, which I like to do; I enjoy being a lifelong learner. Examples: the Oxford Saïd Senior Leadership Executive Programme in 2024, two Erasmus semesters in Sweden and the Netherlands, and a master's in Scotland. I have studied in several countries to immerse myself in different school systems." },
+    { "name": "Takes ownership", "evidence": "Built the team's environment and deployment tooling at Strategic Imperatives without being asked. I constantly automate my own ways of working and like to share those automations with the team; AI has been a godsend for that." }
   ],
   "skills": [
     { "name": "Backend", "keywords": ["Java 17+", "Spring Boot", "REST APIs", "Microservices", "Event-driven architecture"] },
@@ -144,7 +144,7 @@
     { "institution": "Linköping University and Radboud University", "area": "Software Engineering, Erasmus exchange semesters", "studyType": "Exchange", "startDate": "2016", "endDate": "2017" }
   ],
   "volunteer": [
-    { "organization": "YMCA Scotland", "position": "Coding Mentor", "startDate": "2018-09", "endDate": "2019-08", "summary": "Taught coding to young people aged 7 to 18 in Paisley." }
+    { "organization": "YMCA Paisley", "position": "Coding Mentor", "startDate": "2018-09", "endDate": "2019-08", "summary": "Taught coding to young people aged 7 to 18 in Paisley." }
   ],
   "languages": [
     { "language": "English", "fluency": "Native or bilingual" },

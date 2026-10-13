@@ -23,6 +23,19 @@ const HYBRID_PREFERENCE = "Prefers hybrid roles";
 const REMOVED_HINT = "Click a technology";
 const RETIRED_TECHNOLOGIES = ["NestJS", "Node.js", "AI-assisted development"];
 const RETIRED_SKILL_GROUP = "AI-assisted development";
+const SOFT_SKILL_TEAM_PLAYER = "Team player";
+const SOFT_SKILL_MENTOR = "Mentor";
+const SOFT_SKILL_LEARNER = "Self-directed learner";
+const SOFT_SKILL_OWNERSHIP = "Takes ownership";
+const SI_FULL_NAME = "Strategic Imperatives";
+const YMCA_PAISLEY = "YMCA Paisley";
+const YMCA_OLD_NAME = "YMCA Scotland";
+const AI_CHAMPION_PHRASE = "earned me the AI Champion award";
+const NEW_VERVE_COACHING_PHRASE = "helped him to transition into the software developer role while at New Verve Consulting";
+const SHARED_AUTOMATIONS_PHRASE = "share those automations with the team";
+const LIFELONG_LEARNER_PHRASE = "lifelong learner";
+const LEARNER_COUNTRIES = ["Sweden", "the Netherlands", "Scotland"];
+const LEARNER_DROPPED_STACK = ["TypeScript", "Next.js"];
 
 const BANNED_PHRASES = [
   "leverag", "spearhead", "orchestrat", "championed", "foster", "passionate about",
@@ -128,6 +141,35 @@ test("jobs carry no reason-for-leaving line on the site or in the CV", () => {
   }
   assert.equal(site.querySelector(".move"), null, "move paragraph still rendered");
   assert.ok(!/^\*[^*]+\*$/m.test(cvMarkdown), "CV still has an italic move line");
+});
+
+const softSkillEvidence = (name) => resume["x-softSkills"].find((skill) => skill.name === name).evidence;
+
+test("soft skills say where the upskilling channel and the automations live", () => {
+  assert.ok(softSkillEvidence(SOFT_SKILL_TEAM_PLAYER).includes(SI_FULL_NAME));
+  const ownership = softSkillEvidence(SOFT_SKILL_OWNERSHIP);
+  assert.ok(ownership.includes(SI_FULL_NAME));
+  assert.ok(ownership.includes(SHARED_AUTOMATIONS_PHRASE));
+});
+
+test("knowledge sharer says the talks earned the AI Champion award", () => {
+  assert.ok(softSkillEvidence("Knowledge sharer").includes(AI_CHAMPION_PHRASE));
+});
+
+test("mentor names the New Verve coaching and YMCA Paisley everywhere", () => {
+  const mentor = softSkillEvidence(SOFT_SKILL_MENTOR);
+  assert.ok(mentor.includes(NEW_VERVE_COACHING_PHRASE));
+  assert.ok(mentor.includes(YMCA_PAISLEY));
+  assert.ok(!siteText.includes(YMCA_OLD_NAME), "site still says YMCA Scotland");
+  assert.ok(!cvMarkdown.includes(YMCA_OLD_NAME), "CV still says YMCA Scotland");
+  assert.ok(resume.volunteer.some((v) => v.organization === YMCA_PAISLEY));
+});
+
+test("learner evidence is about lifelong study abroad, not the new TypeScript stack", () => {
+  const learner = softSkillEvidence(SOFT_SKILL_LEARNER);
+  assert.ok(learner.includes(LIFELONG_LEARNER_PHRASE));
+  for (const country of LEARNER_COUNTRIES) assert.ok(learner.includes(country), `missing ${country}`);
+  for (const stack of LEARNER_DROPPED_STACK) assert.ok(!learner.includes(stack), `still mentions ${stack}`);
 });
 
 test("retired technologies are gone from the skills and the Strategic Imperatives tags", () => {

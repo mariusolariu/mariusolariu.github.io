@@ -83,12 +83,12 @@ Technologies: Java, SQL, JUnit, Maven, Git
 
 ## Soft Skills
 
-- **Team player.** Main contributor to the cross-team upskilling channel; mentored juniors and other colleagues less experienced than me.
-- **Knowledge sharer.** A talk on developer productivity tools at Diffblue that surprised even the most senior engineers; a talk on ten use cases for AI at Vodafone; two talks on AI-assisted development at Strategic Imperatives, which with other contributions earned the AI Champion award.
+- **Team player.** Main contributor to the cross-team upskilling channel at Strategic Imperatives; mentored juniors and other colleagues less experienced than me.
+- **Knowledge sharer.** A talk on developer productivity tools at Diffblue that surprised even the most senior engineers; a talk on ten use cases for AI at Vodafone; two talks on AI-assisted development at Strategic Imperatives, which with other contributions earned me the AI Champion award.
 - **Personable.** I get on with the people I work with, and I have been trusted to mentor and to run ceremonies since early in my career.
-- **Mentor.** Coached a consultant into a developer role; taught coding to 7 to 18 year olds at YMCA Scotland for a year.
-- **Self-directed learner.** Each of those talks came from studying in my own time: the Oxford Saïd Senior Leadership Executive Programme in 2024, two Erasmus semesters, and a new TypeScript and Next.js stack in 2026.
-- **Takes ownership.** Built the team's environment and deployment tooling without being asked. I constantly automate my own ways of working, and AI has been a godsend for that.
+- **Mentor.** Coached a technical consultant and helped him to transition into the software developer role while at New Verve Consulting; taught coding to 7 to 18 year olds at YMCA Paisley for a year.
+- **Self-directed learner.** Each of the talks above came from studying in my own time, which I like to do; I enjoy being a lifelong learner. Examples: the Oxford Saïd Senior Leadership Executive Programme in 2024, two Erasmus semesters in Sweden and the Netherlands, and a master's in Scotland. I have studied in several countries to immerse myself in different school systems.
+- **Takes ownership.** Built the team's environment and deployment tooling at Strategic Imperatives without being asked. I constantly automate my own ways of working and like to share those automations with the team; AI has been a godsend for that.
 
 ## Education
 
@@ -96,4 +96,4 @@ Technologies: Java, SQL, JUnit, Maven, Git
 - MSc Mobile and Web Development, University of the West of Scotland, distinction (2019)
 - BSc Computer and Software Engineering, Politehnica University Timișoara, distinction (2018)
 - Software Engineering, Erasmus exchange semesters, Linköping University and Radboud University (2017)
-- Coding Mentor, YMCA Scotland, Sep 2018 – Aug 2019. Taught coding to young people aged 7 to 18 in Paisley.
+- Coding Mentor, YMCA Paisley, Sep 2018 – Aug 2019. Taught coding to young people aged 7 to 18 in Paisley.
