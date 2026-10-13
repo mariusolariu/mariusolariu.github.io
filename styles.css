@@ -264,7 +264,7 @@ section { padding: 2.5rem 0 0.5rem; }
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18);
 }
 .filter-status[hidden] { display: none; }
-.filter-status button {
+.filter-clear {
   font: inherit;
   font-size: 0.9rem;
   font-weight: 600;
@@ -276,7 +276,30 @@ section { padding: 2.5rem 0 0.5rem; }
   border-radius: 4px;
   cursor: pointer;
 }
-.filter-status button:hover { background: var(--accent); color: var(--accent-contrast); }
+.filter-clear:hover { background: var(--accent); color: var(--accent-contrast); }
+.filter-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.15rem 0.2rem 0.15rem 0.6rem;
+  background: var(--tag-active-bg);
+  color: var(--tag-active-text);
+  border-radius: 999px;
+  font-weight: 600;
+}
+.filter-chip__remove {
+  font: inherit;
+  line-height: 1;
+  width: 1.6rem;
+  height: 1.6rem;
+  padding: 0;
+  background: transparent;
+  color: inherit;
+  border: 0;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.filter-chip__remove:hover { background: rgba(0, 0, 0, 0.18); }
 .positions { list-style: none; padding: 0; color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 0.6rem; }
 .positions li { margin: 0; }
 

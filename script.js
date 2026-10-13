@@ -18,7 +18,13 @@
 
   var ACTIVE_TAG_CLASS = "is-active";
   var DIMMED_JOB_CLASS = "is-dimmed";
-  var CLEAR_FILTER_LABEL = "Clear";
+  var CLEAR_ALL_LABEL = "Clear all";
+  var NO_MATCH_TEXT = "No role used all of these";
+  var AND_JOINER = "and";
+  var REMOVE_SYMBOL = "\u00D7";
+  var FILTER_CHIP_CLASS = "filter-chip";
+  var FILTER_CHIP_REMOVE_CLASS = "filter-chip__remove";
+  var FILTER_CLEAR_CLASS = "filter-clear";
 
   function readStoredTextSize() {
     try {
@@ -68,61 +74,122 @@
   }
 
   function setupSkillHighlight() {
-    var tags = Array.prototype.slice.call(document.querySelectorAll("[data-skill]"));
+    var triggers = Array.prototype.slice.call(document.querySelectorAll("[data-skill]"));
     var jobs = Array.prototype.slice.call(document.querySelectorAll(".job"));
     var status = document.querySelector("[data-filter-status]");
     var experience = document.getElementById("experience");
-    if (!tags.length || !status || !experience) return;
-    var activeSkill = null;
-    var lastClickedTag = null;
+    if (!triggers.length || !status || !experience) return;
+    var activeSkills = [];
+    var lastClickedTrigger = null;
 
-    var statusText = document.createElement("span");
-    var clear = document.createElement("button");
-    clear.type = "button";
-    clear.textContent = CLEAR_FILTER_LABEL;
-    status.appendChild(statusText);
-    status.appendChild(clear);
+    function jobUsesSkill(job, skill) {
+      return job.querySelector("[data-skill='" + skill + "']") !== null;
+    }
+
+    function createButton(label, className) {
+      var button = document.createElement("button");
+      button.type = "button";
+      button.className = className;
+      button.textContent = label;
+      return button;
+    }
+
+    function createChip(skill) {
+      var chip = document.createElement("span");
+      chip.className = FILTER_CHIP_CLASS;
+      chip.setAttribute("data-chip", skill);
+      var label = document.createElement("span");
+      label.textContent = skill;
+      var remove = createButton(REMOVE_SYMBOL, FILTER_CHIP_REMOVE_CLASS);
+      remove.setAttribute("aria-label", "Remove " + skill);
+      remove.addEventListener("click", function () { removeSkill(skill); });
+      chip.appendChild(label);
+      chip.appendChild(remove);
+      return chip;
+    }
+
+    function renderStatus(matching) {
+      status.textContent = "";
+      var count = document.createElement("span");
+      count.setAttribute("data-filter-count", "");
+      count.textContent = matching === 0
+        ? NO_MATCH_TEXT
+        : "Showing " + matching + " of " + jobs.length + " roles using";
+      status.appendChild(count);
+      activeSkills.forEach(function (skill, index) {
+        if (index > 0) {
+          var joiner = document.createElement("span");
+          joiner.setAttribute("data-joiner", "");
+          joiner.textContent = AND_JOINER;
+          status.appendChild(joiner);
+        }
+        status.appendChild(createChip(skill));
+      });
+      if (activeSkills.length > 1) {
+        var clearAll = createButton(CLEAR_ALL_LABEL, FILTER_CLEAR_CLASS);
+        clearAll.setAttribute("data-clear-all", "");
+        clearAll.addEventListener("click", function () {
+          clearFilter();
+          if (lastClickedTrigger) lastClickedTrigger.focus();
+        });
+        status.appendChild(clearAll);
+      }
+    }
 
     function render() {
+      triggers.forEach(function (trigger) {
+        var isActive = activeSkills.indexOf(trigger.getAttribute("data-skill")) !== -1;
+        trigger.classList.toggle(ACTIVE_TAG_CLASS, isActive);
+        trigger.setAttribute("aria-pressed", isActive ? "true" : "false");
+      });
       var matching = 0;
-      tags.forEach(function (tag) {
-        var isActive = tag.getAttribute("data-skill") === activeSkill;
-        tag.classList.toggle(ACTIVE_TAG_CLASS, isActive);
-        tag.setAttribute("aria-pressed", isActive ? "true" : "false");
-      });
       jobs.forEach(function (job) {
-        var usesSkill = activeSkill === null || job.querySelector("[data-skill='" + activeSkill + "']") !== null;
-        if (usesSkill) matching++;
-        job.classList.toggle(DIMMED_JOB_CLASS, !usesSkill);
+        var usesAll = activeSkills.every(function (skill) { return jobUsesSkill(job, skill); });
+        if (usesAll) matching++;
+        job.classList.toggle(DIMMED_JOB_CLASS, !usesAll);
       });
-      status.hidden = activeSkill === null;
-      statusText.textContent = activeSkill === null
-        ? ""
-        : "Showing " + matching + " of " + jobs.length + " roles using " + activeSkill;
+      status.hidden = activeSkills.length === 0;
+      if (activeSkills.length === 0) {
+        status.textContent = "";
+      } else {
+        renderStatus(matching);
+      }
     }
 
     function clearFilter() {
-      activeSkill = null;
+      activeSkills = [];
       render();
     }
 
-    tags.forEach(function (tag) {
-      tag.addEventListener("click", function () {
-        var skill = tag.getAttribute("data-skill");
-        lastClickedTag = tag;
-        activeSkill = activeSkill === skill ? null : skill;
+    function removeSkill(skill) {
+      var index = activeSkills.indexOf(skill);
+      activeSkills.splice(index, 1);
+      render();
+      var nextRemove = status.querySelectorAll("." + FILTER_CHIP_REMOVE_CLASS)[Math.min(index, activeSkills.length - 1)];
+      if (nextRemove) {
+        nextRemove.focus();
+      } else if (lastClickedTrigger) {
+        lastClickedTrigger.focus();
+      }
+    }
+
+    triggers.forEach(function (trigger) {
+      trigger.addEventListener("click", function () {
+        var skill = trigger.getAttribute("data-skill");
+        lastClickedTrigger = trigger;
+        var index = activeSkills.indexOf(skill);
+        if (index === -1) {
+          activeSkills.push(skill);
+        } else {
+          activeSkills.splice(index, 1);
+        }
         render();
-        if (activeSkill !== null && tag.closest("[data-top-skills]")) experience.scrollIntoView();
+        if (index === -1 && trigger.closest("[data-top-skills]")) experience.scrollIntoView();
       });
     });
 
-    clear.addEventListener("click", function () {
-      clearFilter();
-      if (lastClickedTag) lastClickedTag.focus();
-    });
-
     document.addEventListener("keydown", function (event) {
-      if (event.key === "Escape" && activeSkill !== null) clearFilter();
+      if (event.key === "Escape" && activeSkills.length > 0) clearFilter();
     });
   }
 
