@@ -68,10 +68,11 @@
   }
 
   function setupSkillHighlight() {
-    var tags = Array.prototype.slice.call(document.querySelectorAll(".tag[data-skill]"));
+    var tags = Array.prototype.slice.call(document.querySelectorAll("[data-skill]"));
     var jobs = Array.prototype.slice.call(document.querySelectorAll(".job"));
     var status = document.querySelector("[data-filter-status]");
-    if (!tags.length || !status) return;
+    var experience = document.getElementById("experience");
+    if (!tags.length || !status || !experience) return;
     var activeSkill = null;
     var lastClickedTag = null;
 
@@ -90,7 +91,7 @@
         tag.setAttribute("aria-pressed", isActive ? "true" : "false");
       });
       jobs.forEach(function (job) {
-        var usesSkill = activeSkill === null || job.querySelector(".tag[data-skill='" + activeSkill + "']") !== null;
+        var usesSkill = activeSkill === null || job.querySelector("[data-skill='" + activeSkill + "']") !== null;
         if (usesSkill) matching++;
         job.classList.toggle(DIMMED_JOB_CLASS, !usesSkill);
       });
@@ -111,6 +112,7 @@
         lastClickedTag = tag;
         activeSkill = activeSkill === skill ? null : skill;
         render();
+        if (activeSkill !== null && tag.closest("[data-top-skills]")) experience.scrollIntoView();
       });
     });
 

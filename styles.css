@@ -207,10 +207,10 @@ section { padding: 2.5rem 0 0.5rem; }
   gap: 0.5rem;
   margin-bottom: 1.4rem;
 }
-.top-skills li {
-  margin: 0;
+.top-skills li { margin: 0; }
+.tag.top-skill {
+  font-size: 1rem;
   padding: 0.3rem 0.7rem;
-  border: 1px solid var(--border);
   border-radius: 4px;
   font-weight: 600;
 }

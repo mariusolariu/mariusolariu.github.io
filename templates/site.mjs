@@ -8,6 +8,7 @@ const ASSET_HASH_LENGTH = 8;
 const THEME_COOKIE_NAME = "theme";
 const NEW_TAB_NOTICE = "(opens in a new tab)";
 const DOWNLOAD_LABEL = "Download CV (Word)";
+const TOP_SKILL_FILTER_ALIASES = { Spring: "Spring Boot" };
 
 function assetUrl(file) {
   const content = readFileSync(new URL(`../${file}`, import.meta.url));
@@ -32,6 +33,13 @@ function renderTags(job) {
         <li><button type="button" class="tag" data-skill="${h(skill)}" aria-pressed="false" title="Show every role where I used ${h(skill)}">${h(skill)}</button></li>`);
   return `<ul class="tags">${tags.join("")}
       </ul>`;
+}
+
+function renderTopSkills(skills) {
+  return skills.map((skill) => {
+    const filter = TOP_SKILL_FILTER_ALIASES[skill] ?? skill;
+    return `<li><button type="button" class="tag top-skill" data-skill="${h(filter)}" aria-pressed="false" title="Show every role where I used ${h(filter)}">${h(skill)}</button></li>`;
+  }).join("");
 }
 
 function renderPositions(job) {
@@ -79,7 +87,7 @@ export function renderSite(resume) {
   const linkedin = profileByNetwork(resume, "LinkedIn");
   const github = profileByNetwork(resume, "GitHub");
   const [emailUser, emailDomain] = basics.email.split("@");
-  const topSkills = basics["x-topSkills"].map((skill) => `<li>${h(skill)}</li>`).join("");
+  const topSkills = renderTopSkills(basics["x-topSkills"]);
   const education = resume.education.map((entry) => `
       <li>${h(educationLine(entry))}</li>`).join("");
   const volunteering = resume.volunteer.map((v) => `${v.position} at ${v.organization}, ${dateRange(v.startDate, v.endDate)}. ${v.summary}`).join(" ");

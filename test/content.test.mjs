@@ -17,7 +17,8 @@ const REQUIRED_CV_HEADINGS = ["Summary", "Technical Skills", "Experience", "Soft
 const CV_DOCX_NAME = "Marius_Olariu_CV.docx";
 const SITE_TITLE = "Marius Olariu CV";
 const NEW_TAB_NOTICE = "(opens in a new tab)";
-const EXPECTED_TOP_SKILLS = ["Java", "TypeScript", "AWS", "Spring", "Next.js", "Git"];
+const EXPECTED_TOP_SKILLS = ["Java", "TypeScript", "AWS", "Spring", "React"];
+const REACT_SKILL = "React";
 const EXPECTED_FACTS_LINE = "London, UK · Settled status, no sponsorship needed";
 const HYBRID_PREFERENCE = "Prefers hybrid roles";
 const REMOVED_HINT = "Click a technology";
@@ -118,6 +119,21 @@ test("site shows the top skills line exactly as agreed", () => {
   assert.ok(top, "top skills element missing");
   const skills = top.querySelectorAll("li").map(textOf);
   assert.deepEqual(skills, EXPECTED_TOP_SKILLS);
+});
+
+test("every top skill is a filter button that matches at least one job tag", () => {
+  const buttons = site.querySelectorAll("[data-top-skills] button[data-skill]");
+  assert.equal(buttons.length, EXPECTED_TOP_SKILLS.length);
+  const jobTagSkills = site.querySelectorAll("section#experience .tag").map((tag) => tag.getAttribute("data-skill"));
+  for (const button of buttons) {
+    assert.equal(button.getAttribute("aria-pressed"), "false");
+    assert.ok(jobTagSkills.includes(button.getAttribute("data-skill")), `${textOf(button)} filters on nothing`);
+  }
+});
+
+test("Strategic Imperatives lists React among its technologies", () => {
+  const siTags = resume.work.find((job) => job.name === SI_FULL_NAME)["x-technologies"];
+  assert.ok(siTags.includes(REACT_SKILL));
 });
 
 test("hero facts line states only the location and right to work", () => {

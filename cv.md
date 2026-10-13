@@ -24,7 +24,7 @@ I share what I learn: talks on AI-assisted development at Vodafone and at Strate
 
 Cloud billing and fibre platforms for UK telecoms providers | Woking, hybrid | Nov 2024 – Present
 
-Technologies: Java, Spring Boot, AWS, SQL, MySQL, Liquibase, Docker, JUnit, Karate, Maven, Git, TypeScript, Next.js, Serverless
+Technologies: Java, Spring Boot, AWS, SQL, MySQL, Liquibase, Docker, JUnit, Karate, Maven, Git, TypeScript, React, Next.js, Serverless
 
 - Chose to return to hands-on engineering after leading a team at Vodafone, and have spent most of my time here on the Elevate billing team, working across the codebase: payments, invoicing, the rental engine, the frontend and more. Elevate processes roughly £100M of monthly revenue and handles invoices with over a million call records.
 - Contributed a good part of the architecture and early direction of View my Bill, a new brownfield project that lets our customers' own customers download their bills and see their consumption. It pairs a backend-for-frontend over our REST services with a Next.js app as the frontend.
