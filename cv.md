@@ -43,6 +43,7 @@ Technologies: Java, Spring Boot, AWS, JUnit, Maven, Git, Datadog
 - Improved how the team used Git and pull requests: small, well-titled commits, formatting changes kept out of functional ones, and pull requests that read as a story a reviewer can follow.
 - Gave a talk on ten use cases for AI in our work, the first of a series I have kept up since.
 - Recognised as Top Talent, one of four from about 80 engineers, while still a mid-level developer, and promoted to lead a team of seven: five developers, a tester and a scrum master.
+- After a short spell in a developer and management role, I realised that management is not the branch of software engineering I want to pursue long term. I returned to an individual-contributor developer role and moved to Strategic Imperatives.
 
 ### Full-Stack Software Engineer, [IQVIA](https://www.iqvia.com)
 
@@ -52,6 +53,7 @@ Technologies: Java, Groovy, Grails, AWS, SQL, JavaScript, Git
 
 - Worked across the stack in Groovy, Grails and JavaScript on an eSource and Phase I clinical-trial automation system used by the largest pharmaceutical companies, working with biomedical engineers, product owners and other disciplines to derive requirements and find the right software solution for our customers.
 - Often provided third-line support for UK customers single-handedly in the UK morning, as most of the team was US-based and online from about 4pm. Unblocking large clinical sites, where studies with tens of patients were under way and a quick fix mattered, was the most rewarding part of the role.
+- A short stint: the project was a legacy but successful one built on dated technologies (Groovy and Grails), and as the only developer based in the UK I was usually the only developer online, which left little room for career growth or collaboration with other programmers.
 
 ### Software Engineer, [Diffblue](https://www.diffblue.com)
 
@@ -60,7 +62,8 @@ AI tool that writes unit tests for Java code | Oxford, hybrid | Aug 2020 – Feb
 Technologies: Java, Spring Boot, JUnit, Maven, Git
 
 - Developed software in Java for Diffblue Cover, a tool that generates unit tests using reinforcement learning. Set up and maintained the online environment used to trial the product.
-- My tech lead, who saw my potential, had me run some of the stand-ups and retrospectives. I made the most of colleagues from computer-science academia and spent a lot of time, online and offline, learning from them.
+- My tech lead, who recognised my potential, had me run some of the stand-ups and retrospectives. I made the most of colleagues from computer-science academia and spent a lot of time, online and offline, learning from them.
+- Left when my partner and I decided to move to London, where we bought our first home. I commuted to Oxford weekly, which soon proved costly and time-demanding.
 
 ### Junior Full-Stack Software Engineer, [New Verve Consulting](https://www.newverveconsulting.com)
 
@@ -70,6 +73,7 @@ Technologies: JavaScript, React, Node.js, AWS, Jest, Git
 
 - Designed and built a Jira Cloud add-on, a lightweight CRM, in React and Node on AWS, while finishing my MSc dissertation.
 - Mentored a technical consultant into a developer role.
+- Left when my partner secured a job in Oxford and we decided to move there; commuting to Glasgow three days a week to the office proved expensive and time-consuming.
 
 ### Junior Software Engineer, [SSI Schäfer](https://www.ssi-schaefer.com)
 
@@ -78,6 +82,7 @@ Warehouse automation and storage systems | Timișoara, Romania, on site, part-ti
 Technologies: Java, SQL, JUnit, Maven, Git
 
 - Contributed to the development of the Java control software for a vertical lift warehouse module, in parallel with the final year of my BSc.
+- Left to pursue a master's degree in Mobile and Web Development at the University of the West of Scotland.
 
 ## Soft Skills
 

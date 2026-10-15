@@ -25,6 +25,15 @@ const NEW_VERVE_NAME = "New Verve Consulting";
 const SSI_NAME = "SSI Schäfer";
 const NEW_VERVE_WORK_PATTERN = "on site, full-time";
 const SSI_WORK_PATTERN = "on site, part-time";
+const LEAVING_BULLET_STARTS = {
+  "SSI Schäfer": "Left to pursue a master's degree in Mobile and Web Development",
+  "New Verve Consulting": "Left when my partner secured a job in Oxford",
+  "Diffblue": "Left when my partner and I decided to move to London",
+  "IQVIA": "A short stint: the project was a legacy but successful one",
+  "VodafoneThree": "After a short spell in a developer and management role"
+};
+const DIFFBLUE_NAME = "Diffblue";
+const DIFFBLUE_RECOGNISED_PHRASE = "who recognised my potential";
 const HIGHLIGHT_LABEL = "Recent highlight";
 const HIGHLIGHT_LINK_TEXT = "More at Strategic Imperatives section";
 const OLD_HIGHLIGHT_CLASS = "differentiator";
@@ -192,6 +201,24 @@ test("shouldStateWorkPatternForNewVerveAndSsiWhenShowingJobs", () => {
     assert.ok(textOf(article).includes(pattern), `${company} site entry lacks ${pattern}`);
     assert.ok(cvMarkdown.includes(`${job.location} |`), `${company} CV line lacks ${pattern}`);
   }
+});
+
+test("shouldEndEachJobWithItsReasonForLeavingBulletWhenShowingJobs", () => {
+  const articles = site.querySelectorAll("section#experience article");
+  for (const [company, start] of Object.entries(LEAVING_BULLET_STARTS)) {
+    const job = resume.work.find((entry) => entry.name === company);
+    const lastBullet = job.highlights[job.highlights.length - 1];
+    assert.ok(lastBullet.startsWith(start), `${company} last bullet is not the leaving reason`);
+    const article = articles.find((a) => textOf(a).includes(company));
+    const siteBullets = article.querySelectorAll(".highlights li");
+    assert.equal(textOf(siteBullets[siteBullets.length - 1]), lastBullet);
+    assert.ok(cvMarkdown.includes(lastBullet), `${company} CV lacks the leaving bullet`);
+  }
+});
+
+test("shouldUseRecognisedWordingInDiffblueSecondBulletWhenShowingJobs", () => {
+  const job = resume.work.find((entry) => entry.name === DIFFBLUE_NAME);
+  assert.ok(job.highlights[1].includes(DIFFBLUE_RECOGNISED_PHRASE));
 });
 
 test("hero facts line states only the location and right to work", () => {
