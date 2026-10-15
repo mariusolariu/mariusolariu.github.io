@@ -5,7 +5,7 @@
     "label": "Senior Full-Stack Software Engineer",
     "email": "marius.lucian.olariu@gmail.com",
     "url": "https://mariusolariu.github.io",
-    "summary": "I specialise in backend software development with Java, Spring and AWS; I am also familiar with frontend development using TypeScript, React and Next.js. At Strategic Imperatives (November 2024 – present), most of my work has been on Elevate, a billing platform that processes around £100M a month for UK telecom resellers. Before that I worked in the Checkout team at Vodafone, where through constant effort and dedication I earned the Vodafone Top Talent award.",
+    "summary": "I specialise in backend software development with Java, Spring and AWS; I am also familiar with frontend development using TypeScript, React and Next.js. At Strategic Imperatives (November 2024 – present), most of my work has been on Elevate, a billing platform that processes around £100M a month for UK telecom resellers. Before that I worked in the Checkout team at Vodafone, where through constant effort and dedication I earned the Vodafone Top Talent award and a promotion to Team Lead. I have used AI in my daily engineering practice since 2023 and have given talks on it at Vodafone and at Strategic Imperatives, where my talks and being the main contributor to the internal knowledge-sharing channel earned me the AI Champion award. I keep learning and sharing the latest developments.",
     "location": {
       "city": "London",
       "countryCode": "GB",
@@ -25,7 +25,7 @@
     ],
     "x-rightToWork": "Settled status, no sponsorship needed",
     "x-topSkills": ["Java", "TypeScript", "AWS", "Spring", "React"],
-    "x-highlight": "At Strategic Imperatives I led the billing team's adoption of AI-assisted development: the team's throughput at least doubled with no production incident, and I received the company's AI Champion award."
+    "x-highlight": "At Strategic Imperatives I led the billing team's adoption of AI-assisted development: the team's throughput at least doubled with no production incident."
   },
   "work": [
     {

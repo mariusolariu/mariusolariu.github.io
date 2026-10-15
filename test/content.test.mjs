@@ -37,7 +37,8 @@ const DIFFBLUE_RECOGNISED_PHRASE = "who recognised my potential";
 const HIGHLIGHT_LABEL = "Recent highlight";
 const HIGHLIGHT_LINK_TEXT = "More at Strategic Imperatives section";
 const OLD_HIGHLIGHT_CLASS = "differentiator";
-const SUMMARY_BANNED_PHRASES = ["team lead", "promotion"];
+const AI_CHAMPION_AWARD = "AI Champion";
+const SUMMARY_REQUIRED_PHRASES = [SUMMARY_EFFORT_PHRASE, TOP_TALENT_PHRASE, "Team Lead", "since 2023", AI_CHAMPION_AWARD];
 const EXPECTED_FACTS_LINE = "London, UK · Settled status, no sponsorship needed";
 const HYBRID_PREFERENCE = "Prefers hybrid roles";
 const REMOVED_HINT = "Click a technology";
@@ -155,11 +156,13 @@ test("Strategic Imperatives lists React among its technologies", () => {
   assert.ok(siTags.includes(REACT_SKILL));
 });
 
-test("shouldMentionTopTalentWithoutTeamLeadPromotionWhenReadingSummary", () => {
+test("shouldMentionTopTalentPromotionAndAiChampionWhenReadingSummary", () => {
   const summary = resume.basics.summary;
-  assert.ok(summary.includes(SUMMARY_EFFORT_PHRASE));
-  assert.ok(summary.includes(TOP_TALENT_PHRASE));
-  for (const phrase of SUMMARY_BANNED_PHRASES) assert.ok(!summary.toLowerCase().includes(phrase), `summary still says ${phrase}`);
+  for (const phrase of SUMMARY_REQUIRED_PHRASES) assert.ok(summary.includes(phrase), `summary lacks ${phrase}`);
+});
+
+test("shouldNotRepeatTheAiChampionAwardInTheHeroHighlightWhenRenderingTheHero", () => {
+  assert.ok(!resume.basics["x-highlight"].includes(AI_CHAMPION_AWARD));
 });
 
 test("shouldLabelTheHeroHighlightWhenRenderingTheHero", () => {
