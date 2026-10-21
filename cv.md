@@ -6,7 +6,7 @@ London, UK | Settled status, no sponsorship needed | marius.lucian.olariu@gmail.
 
 ## Summary
 
-I specialise in backend software development with Java, Spring and AWS; I am also familiar with frontend development using TypeScript, React and Next.js. At Strategic Imperatives (November 2024 – present), most of my work has been on Elevate, a billing platform that processes around £100M a month for UK telecom resellers. Before that I worked in the Checkout team at Vodafone, where through constant effort and dedication I earned the Vodafone Top Talent award and a promotion to Team Lead. I have used AI in my daily engineering practice since 2023 and have given talks on it at Vodafone and at Strategic Imperatives, where my talks and being the main contributor to the internal knowledge-sharing channel earned me the AI Champion award. I keep learning and sharing the latest developments.
+I specialise in backend software development with Java, Spring and AWS; I am also familiar with frontend development using TypeScript, React and Next.js. At Strategic Imperatives (November 2024 – present), most of my work has been on Elevate, a billing platform that processes around £100M a month for UK telecom resellers. Before that I worked in the Checkout team at Vodafone, where through constant effort and dedication I earned the Vodafone Top Talent award. I have used AI in my daily engineering practice since 2023 and have given talks on it at Vodafone and at Strategic Imperatives, where my talks and being the main contributor to the internal knowledge-sharing channel earned me the AI Champion award. I keep learning and sharing the latest developments.
 
 ## Technical Skills
 

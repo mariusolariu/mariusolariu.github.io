@@ -38,7 +38,7 @@ const HIGHLIGHT_LABEL = "Recent highlight";
 const HIGHLIGHT_LINK_TEXT = "More at Strategic Imperatives section";
 const OLD_HIGHLIGHT_CLASS = "differentiator";
 const AI_CHAMPION_AWARD = "AI Champion";
-const SUMMARY_REQUIRED_PHRASES = [SUMMARY_EFFORT_PHRASE, TOP_TALENT_PHRASE, "Team Lead", "since 2023", AI_CHAMPION_AWARD];
+const SUMMARY_REQUIRED_PHRASES = [SUMMARY_EFFORT_PHRASE, TOP_TALENT_PHRASE, "since 2023", AI_CHAMPION_AWARD];
 const EXPECTED_FACTS_LINE = "London, UK · Settled status, no sponsorship needed";
 const HYBRID_PREFERENCE = "Prefers hybrid roles";
 const REMOVED_HINT = "Click a technology";
@@ -156,7 +156,11 @@ test("Strategic Imperatives lists React among its technologies", () => {
   assert.ok(siTags.includes(REACT_SKILL));
 });
 
-test("shouldMentionTopTalentPromotionAndAiChampionWhenReadingSummary", () => {
+test("shouldNotMentionTeamLeadPromotionWhenReadingSummary", () => {
+  assert.ok(!resume.basics.summary.includes("promotion to Team Lead"), "summary mentions the Team Lead promotion");
+});
+
+test("shouldMentionTopTalentAndAiChampionWhenReadingSummary", () => {
   const summary = resume.basics.summary;
   for (const phrase of SUMMARY_REQUIRED_PHRASES) assert.ok(summary.includes(phrase), `summary lacks ${phrase}`);
 });
