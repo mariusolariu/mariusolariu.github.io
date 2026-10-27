@@ -52,8 +52,9 @@ const SI_FULL_NAME = "Strategic Imperatives";
 const YMCA_PAISLEY = "YMCA Paisley";
 const YMCA_OLD_NAME = "YMCA Scotland";
 const AI_CHAMPION_PHRASE = "earned me the AI Champion award";
-const NEW_VERVE_COACHING_PHRASE = "helped him to transition into the software developer role while at New Verve Consulting";
-const SHARED_AUTOMATIONS_PHRASE = "share those automations with the team";
+const NEW_VERVE_COACHING_PHRASE = "into a developer role at New Verve Consulting";
+const SHARED_AUTOMATIONS_PHRASE = "share my automations with the team";
+const MAX_SOFT_SKILL_EVIDENCE_LENGTH = 170;
 const LIFELONG_LEARNER_PHRASE = "lifelong learner";
 const LEARNER_COUNTRIES = ["Sweden", "the Netherlands", "Scotland"];
 const LEARNER_DROPPED_STACK = ["TypeScript", "Next.js"];
@@ -260,6 +261,12 @@ test("soft skills say where the upskilling channel and the automations live", ()
   assert.ok(ownership.includes(SHARED_AUTOMATIONS_PHRASE));
 });
 
+test("shouldKeepSoftSkillEvidenceBriefWhenReadingResume", () => {
+  for (const { name, evidence } of resume["x-softSkills"]) {
+    assert.ok(evidence.length <= MAX_SOFT_SKILL_EVIDENCE_LENGTH, `${name} evidence is ${evidence.length} characters`);
+  }
+});
+
 test("knowledge sharer says the talks earned the AI Champion award", () => {
   assert.ok(softSkillEvidence("Knowledge sharer").includes(AI_CHAMPION_PHRASE));
 });
@@ -271,6 +278,13 @@ test("mentor names the New Verve coaching and YMCA Paisley everywhere", () => {
   assert.ok(!siteText.includes(YMCA_OLD_NAME), "site still says YMCA Scotland");
   assert.ok(!cvMarkdown.includes(YMCA_OLD_NAME), "CV still says YMCA Scotland");
   assert.ok(resume.volunteer.some((v) => v.organization === YMCA_PAISLEY));
+});
+
+test("shouldLeaveVolunteeringOutWhenRenderingCv", () => {
+  for (const { position } of resume.volunteer) {
+    assert.ok(siteText.includes(position), `site lost ${position}`);
+    assert.ok(!cvMarkdown.includes(position), `CV still lists ${position}`);
+  }
 });
 
 test("learner evidence is about lifelong study abroad, not the new TypeScript stack", () => {

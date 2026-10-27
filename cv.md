@@ -53,7 +53,7 @@ Technologies: Java, Groovy, Grails, AWS, SQL, JavaScript, Git
 
 - Worked across the stack in Groovy, Grails and JavaScript on an eSource and Phase I clinical-trial automation system used by the largest pharmaceutical companies, working with biomedical engineers, product owners and other disciplines to derive requirements and find the right software solution for our customers.
 - Often provided third-line support for UK customers single-handedly in the UK morning, as most of the team was US-based and online from about 4pm. Unblocking large clinical sites, where studies with tens of patients were under way and a quick fix mattered, was the most rewarding part of the role.
-- A short stint: the project was a legacy but successful one built on dated technologies (Groovy and Grails), and as the only developer based in the UK I was usually the only developer online, which left little room for career growth or collaboration with other programmers.
+- A short stint: the project was a legacy but successful one on dated technologies, with little room to grow.
 
 ### Software Engineer, [Diffblue](https://www.diffblue.com)
 
@@ -63,7 +63,7 @@ Technologies: Java, Spring Boot, JUnit, Maven, Git
 
 - Developed software in Java for Diffblue Cover, a tool that generates unit tests using reinforcement learning. Set up and maintained the online environment used to trial the product.
 - My tech lead, who recognised my potential, had me run some of the stand-ups and retrospectives. I made the most of colleagues from computer-science academia and spent a lot of time, online and offline, learning from them.
-- Left when my partner and I decided to move to London, where we bought our first home. I commuted to Oxford weekly, which soon proved costly and time-demanding.
+- Left when my partner and I decided to move to London; the weekly commute to Oxford proved costly.
 
 ### Junior Full-Stack Software Engineer, [New Verve Consulting](https://www.newverveconsulting.com)
 
@@ -73,7 +73,7 @@ Technologies: JavaScript, React, Node.js, AWS, Jest, Git
 
 - Designed and built a Jira Cloud add-on, a lightweight CRM, in React and Node on AWS, while finishing my MSc dissertation.
 - Mentored a technical consultant into a developer role.
-- Left when my partner secured a job in Oxford and we decided to move there; commuting to Glasgow three days a week to the office proved expensive and time-consuming.
+- Left when my partner secured a job in Oxford and we decided to move there.
 
 ### Junior Software Engineer, [SSI Schäfer](https://www.ssi-schaefer.com)
 
@@ -82,16 +82,16 @@ Warehouse automation and storage systems | Timișoara, Romania, on site, part-ti
 Technologies: Java, SQL, JUnit, Maven, Git
 
 - Contributed to the development of the Java control software for a vertical lift warehouse module, in parallel with the final year of my BSc.
-- Left to pursue a master's degree in Mobile and Web Development at the University of the West of Scotland.
+- Left to pursue a master's degree in Mobile and Web Development in Scotland.
 
 ## Soft Skills
 
-- **Team player.** Main contributor to the cross-team upskilling channel at Strategic Imperatives; mentored juniors and other colleagues less experienced than me.
-- **Knowledge sharer.** A talk on developer productivity tools at Diffblue that surprised even the most senior engineers; a talk on ten use cases for AI at Vodafone; two talks on AI-assisted development at Strategic Imperatives, which with other contributions earned me the AI Champion award.
-- **Personable.** I get on with the people I work with, and I have been trusted to mentor and to run ceremonies since early in my career.
-- **Mentor.** Coached a technical consultant and helped him to transition into the software developer role while at New Verve Consulting; taught coding to 7 to 18 year olds at YMCA Paisley for a year.
-- **Self-directed learner.** Each of the talks above came from studying in my own time, which I like to do; I enjoy being a lifelong learner. Examples: the Oxford Saïd Senior Leadership Executive Programme in 2024, two Erasmus semesters in Sweden and the Netherlands, and a master's in Scotland. I have studied in several countries to immerse myself in different school systems.
-- **Takes ownership.** Built the team's environment and deployment tooling at Strategic Imperatives without being asked. I constantly automate my own ways of working and like to share those automations with the team; AI has been a godsend for that.
+- **Team player.** Main contributor to the cross-team upskilling channel at Strategic Imperatives.
+- **Knowledge sharer.** Talks on developer productivity at Diffblue, AI use cases at Vodafone and AI-assisted development at Strategic Imperatives, which earned me the AI Champion award.
+- **Personable.** Get on well with colleagues; trusted to mentor and run ceremonies from early on.
+- **Mentor.** Coached a technical consultant into a developer role at New Verve Consulting; taught coding to 7 to 18 year olds at YMCA Paisley.
+- **Self-directed learner.** A lifelong learner: the Oxford Saïd Senior Leadership Executive Programme (2024), Erasmus semesters in Sweden and the Netherlands, and a master's in Scotland.
+- **Takes ownership.** Built the team's environment and deployment tooling at Strategic Imperatives unprompted; I share my automations with the team.
 
 ## Education
 
@@ -99,4 +99,3 @@ Technologies: Java, SQL, JUnit, Maven, Git
 - MSc Mobile and Web Development, University of the West of Scotland, distinction (2019)
 - BSc Computer and Software Engineering, Politehnica University Timișoara, distinction (2018)
 - Software Engineering, Erasmus exchange semesters, Linköping University and Radboud University (2017)
-- Coding Mentor, YMCA Paisley, Sep 2018 – Aug 2019. Taught coding to young people aged 7 to 18 in Paisley.

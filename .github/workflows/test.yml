@@ -15,6 +15,7 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
+      - run: sudo apt-get update && sudo apt-get install -y pandoc
       - run: npm test
       - name: Fail if generated files are stale
         run: git diff --exit-code -- index.html cv.md

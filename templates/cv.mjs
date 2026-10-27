@@ -25,7 +25,6 @@ export function renderCvMarkdown(resume) {
   for (const item of resume["x-softSkills"]) lines.push(`- **${item.name}.** ${item.evidence}`);
   lines.push("", "## Education", "");
   for (const entry of resume.education) lines.push(`- ${educationLine(entry)}`);
-  for (const v of resume.volunteer) lines.push(`- ${v.position}, ${v.organization}, ${dateRange(v.startDate, v.endDate)}. ${v.summary}`);
   lines.push("");
   return lines.join("\n");
 }
