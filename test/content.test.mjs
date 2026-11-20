@@ -58,6 +58,9 @@ const MAX_SOFT_SKILL_EVIDENCE_LENGTH = 170;
 const LIFELONG_LEARNER_PHRASE = "lifelong learner";
 const LEARNER_COUNTRIES = ["Sweden", "the Netherlands", "Scotland"];
 const LEARNER_DROPPED_STACK = ["TypeScript", "Next.js"];
+const PROVIDER_COUNT_PHRASE = "more than 200 UK telecom providers";
+const SI_ARCHITECTURE_PHRASES = ["Java 8", "multi-tenant"];
+const INTERNAL_DECK_ONLY_TERMS = ["15 million", "300 million", "pentest", "eu-west-2"];
 
 const BANNED_PHRASES = [
   "leverag", "spearhead", "orchestrat", "championed", "foster", "passionate about",
@@ -408,4 +411,26 @@ test("the Word CV exists next to the page and no PDF or HTML CV is left behind",
   assert.ok(!existsSync(new URL("Marius_Olariu_CV.pdf", ROOT)), "the PDF was dropped; delete it");
   assert.ok(!existsSync(new URL("cv.html", ROOT)), "cv.html was dropped; delete it");
   assert.ok(existsSync(new URL(".nojekyll", ROOT)), ".nojekyll missing");
+});
+
+test("shouldStateProviderCountWhenRenderingSummary", () => {
+  assert.ok(resume.basics.summary.includes(PROVIDER_COUNT_PHRASE), "resume.json summary");
+  assert.ok(siteText.includes(PROVIDER_COUNT_PHRASE), "site summary");
+  assert.ok(cvMarkdown.includes(PROVIDER_COUNT_PHRASE), "CV summary");
+});
+
+test("shouldNameMonolithAndMicroservicesWhenDescribingStrategicImperatives", () => {
+  const siHighlights = resume.work.find((job) => job.name === SI_FULL_NAME).highlights;
+  for (const phrase of SI_ARCHITECTURE_PHRASES) {
+    assert.ok(siHighlights.some((highlight) => highlight.includes(phrase)), `no SI highlight mentions ${phrase}`);
+  }
+});
+
+test("shouldNotPublishInternalDeckFiguresWhenRenderingAnyOutput", () => {
+  const outputs = { "resume.json": JSON.stringify(resume), "index.html": siteHtml, "cv.md": cvMarkdown };
+  for (const [name, text] of Object.entries(outputs)) {
+    for (const term of INTERNAL_DECK_ONLY_TERMS) {
+      assert.ok(!text.toLowerCase().includes(term), `${name} contains internal-only "${term}"`);
+    }
+  }
 });
